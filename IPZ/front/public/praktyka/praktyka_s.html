@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zajęcia Praktyczne</title>
+  <link rel="stylesheet" href="praktyka.css" />
+  <link rel="stylesheet" href="../footer.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo">
+      <span class="leo">LEO</span>
+      <span class="drive">DRIVE</span>
+    </div>
+    <nav class="nav-menu">
+      <a href="#" id="selected" class="nav-link">ZAJĘCIA PRAKTYCZNE</a>
+      <a href="../teoria/theory.html" class="nav-link">ZAJĘCIA TEORYTYCZNE</a>
+      <a href="../chat/chat.html" class="nav-link">CHAT</a>
+      <a href="../konto/kontos.html" class="nav-link">PROFIL</a>
+      <a href="#" id="logout-btn" class="nav-link">LOG OUT</a>
+    </nav>
+  </header>
+  <div class="container">
+    <!-- Move the buttons div here, below the header -->
+    <div class="buttons">
+      <select id="instruktorList"></select>
+    </div>
+
+    <button id="note" class="btn-add-notes" aria-label="Notes">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M20.1305 3.15961C19.568 2.5972 18.805 2.28125 18.0095 2.28125C17.214 2.28125 16.4511 2.5972 15.8885 3.15961L15.1815 3.86761L20.1315 8.81761L20.8375 8.11061C21.1162 7.83203 21.3372 7.50129 21.488 7.13728C21.6388 6.77327 21.7164 6.38312 21.7164 5.98911C21.7164 5.5951 21.6388 5.20495 21.488 4.84094C21.3372 4.47693 21.1162 4.14619 20.8375 3.86761L20.1305 3.15961ZM18.7165 10.2316L13.7665 5.28161L4.67654 14.3726C4.47762 14.5716 4.33866 14.8224 4.27554 15.0966L3.24654 19.5516C3.2082 19.717 3.21259 19.8894 3.25932 20.0526C3.30604 20.2159 3.39355 20.3645 3.5136 20.4846C3.63365 20.6046 3.78228 20.6921 3.9455 20.7388C4.10872 20.7856 4.28115 20.79 4.44654 20.7516L8.90254 19.7236C9.17634 19.6603 9.42686 19.5214 9.62554 19.3226L18.7165 10.2316Z"
+          fill="#FF8000" />
+      </svg>
+    </button>
+    <!--- Modalnoe okno dla zapisu--->
+    <div id="bookingModal" class="modal-notes hidden">
+      <div class="modal-content-notes">
+        <button class="close-notes" id="closeBookingModal">&times;</button>
+        <h3>Rezerwacja</h3>
+        <p id="bookingInfo"></p>
+        <label for="bookingType">Typ zajęć:</label>
+        <select id="bookingType">
+          <option value="praktyka">Zajęcia praktyczne</option>
+          <option value="wyklad">Wykład</option>
+          <option value="egzamin_t">Egzamin teoretyczny</option>
+          <option value="egzamin_p">Egzamin praktyczny</option>
+        </select>
+        <button id="confirmBooking">Zarezerwuj</button>
+        <button id="cancelBooking">Anuluj rezerwację</button>
+      </div>
+    </div>
+
+
+    <!-- МОДАЛЬНОЕ ОКНО ЗАМЕТОК -->
+    <div id="notesModal" class="modal-notes hidden">
+      <div class="modal-content-notes">
+        <button id="closeNotesModal" class="close-notes" aria-label="Zamknij">
+          &times;
+        </button>
+
+        <h3>Notatki</h3>
+
+        <label for="lesson-select">Wybierz zajęcia z listy:</label>
+        <select id="lesson-select" style="width: 100%; padding: 8px; margin-bottom: 10px;">
+          <!-- опции будут загружены динамически -->
+        </select>
+
+
+
+        <!-- Добавление новой заметки -->
+        <textarea id="new-note" placeholder="Wprowadź notatkę..." rows="4"></textarea>
+        <button id="add-note">Dodać notatkę</button>
+      </div>
+    </div>
+
+    <table id="schedule" class="schedule">
+      <thead>
+        <tr id="list-days">
+          <th>
+            <div id="arrows">
+              <button id="prevWeekBtn"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15"
+                  fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M0.43868 8.21713C0.157779 7.93588 0 7.55463 0 7.15713C0 6.75963 0.157779 6.37838 0.43868 6.09713L6.09468 0.439127C6.37607 0.157865 6.75768 -9.37265e-05 7.15553 4.17235e-08C7.35253 4.6471e-05 7.54759 0.0388942 7.72958 0.114326C7.91157 0.189757 8.07691 0.300294 8.21618 0.439627C8.35545 0.578959 8.46591 0.744358 8.54125 0.92638C8.6166 1.1084 8.65535 1.30348 8.65531 1.50048C8.65526 1.69748 8.61641 1.89254 8.54098 2.07453C8.46555 2.25651 8.35501 2.42186 8.21568 2.56113L3.62068 7.15713L8.21668 11.7531C8.36001 11.8914 8.47436 12.0569 8.55306 12.2399C8.63176 12.4228 8.67323 12.6196 8.67505 12.8188C8.67687 13.018 8.63902 13.2155 8.56368 13.3999C8.48835 13.5843 8.37705 13.7518 8.23627 13.8927C8.0955 14.0336 7.92808 14.1451 7.74377 14.2206C7.55946 14.2961 7.36196 14.3341 7.16279 14.3325C6.96362 14.3309 6.76677 14.2896 6.58373 14.211C6.40069 14.1325 6.23512 14.0183 6.09668 13.8751L0.43668 8.21713H0.43868Z"
+                    fill="white" />
+                </svg></button>
+              <span style="display: none;" id="currentWeekLabel"></span>
+              <button id="nextWeekBtn"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15"
+                  fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M8.21663 6.07858C8.49753 6.35983 8.65531 6.74108 8.65531 7.13858C8.65531 7.53608 8.49753 7.91733 8.21663 8.19858L2.56063 13.8566C2.27923 14.1378 1.89763 14.2958 1.49977 14.2957C1.10192 14.2956 0.72039 14.1375 0.439127 13.8561C0.157865 13.5747 -9.37265e-05 13.1931 4.17234e-08 12.7952C9.38099e-05 12.3974 0.158233 12.0158 0.439627 11.7346L5.03563 7.13858L0.439627 2.54258C0.166254 2.25981 0.0148813 1.88098 0.0181122 1.48768C0.0213432 1.09438 0.178919 0.718084 0.456901 0.43984C0.734883 0.161595 1.11103 0.00366479 1.50432 6.29798e-05C1.89762 -0.00353884 2.2766 0.147477 2.55963 0.420583L8.21763 6.07758L8.21663 6.07858Z"
+                    fill="white" />
+                </svg></button>
+            </div>
+          </th>
+          <th id="Mon">
+            <div class="day-label">
+              Mon<br /><span class="day-date"></span>
+            </div>
+          </th>
+          <th id="Tue">
+            <div class="day-label">
+              Tue<br /><span class="day-date"></span>
+            </div>
+          </th>
+          <th id="Wed">
+            <div class="day-label">
+              Wed<br /><span class="day-date"></span>
+            </div>
+          </th>
+          <th id="Thu">
+            <div class="day-label">
+              Thu<br /><span class="day-date"></span>
+            </div>
+          </th>
+          <th id="Fri">
+            <div class="day-label">
+              Fri<br /><span class="day-date"></span>
+            </div>
+          </th>
+          <th id="Sat">
+            <div class="day-label">
+              Sat<br /><span class="day-date"></span>
+            </div>
+          </th>
+          <th id="Sun">
+            <div class="day-label">
+              Sun<br /><span class="day-date"></span>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>09:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>10:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>11:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>12:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>13:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>14:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>15:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>16:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>17:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="legend-container">
+      <div class="legend-item">
+        <span class="circle" style="background-color: red"></span><span>- Zajęte przez innego użytkownika</span>
+      </div>
+      <div class="legend-item">
+        <span class="circle" style="background-color: green"></span><span>- Zajęcia praktyczne</span>
+      </div>
+      <div class="legend-item">
+        <span class="circle" style="background-color: lightgreen"></span><span>- Instruktor wybrał ten czas jako
+          preferowany</span>
+      </div>
+      <div class="legend-item">
+        <span class="circle" style="background-color: yellow"></span><span>- Egzamin teoretyczny</span>
+      </div>
+      <div class="legend-item">
+        <span class="circle" style="background-color: blue"></span><span>- Egzamin praktyczny</span>
+      </div>
+      <div class="legend-item">
+        <span class="circle" style="background-color: grey"></span><span>- Teorię</span>
+      </div>
+      <div class="legend-item">
+        <span class="circle" style="background-color: black"></span><span>- Oczekuje na usunięcie</span>
+      </div>
+    </div>
+    <div id="select-static" class="select-static"></div>
+  </div>
+
+  <footer>
+    <div style="height: unset" class="footer-content">
+      <div class="footer-block logo">
+        <img src="/front/images/logofull.png" id="complete-logo" alt="Logo" />
+        <h4>LeoDrive Nauka Jazdy</h4>
+        <p>Adres| 00-000 Szczecin</p>
+        <p>Informacja czynna w godzinach 11:00 - 16:00</p>
+        <p>ba53727@zut.edu.pl</p>
+        <p>Kontakt: +48 000 000 000</p>
+        <p id="sendMessage">napisz do nas</p>
+      </div>
+      <div class="stripe"></div>
+      <div class="footer-block footer-menu">
+        <h4>Linki</h4>
+        <ul>
+          <li>
+            <a href="/front/public/konto/kontoSetComent.html">Napisz komentarz do instruktora</a>
+          </li>
+          <li>
+            <a href="https://forms.gle/JZBGsN8evk8yTzax9">Wypełnij formularz</a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/groups/2082595865487121?locale=pl_PL"><img src="/front/images/FB_Icon.svg"
+                alt="Facebook" /></a>
+          </li>
+          <li>
+            <a href="https://t.me/+Bw2jUh57njxmNGZi"><img src="/front/images/Telegram_Icon.svg"
+                alt="Telegram Channel" /></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/leodrive_official/"><img src="/front/images/Instagram_Icon.svg"
+                alt="Our Instagram" /></a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-block footer-menu">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="../Strona Glowna/main.html">Strona Glowna</a></li>
+          <li><a href="../Prawo Jazdy/PrawoJazdy.html">Prawo Jazdy</a></li>
+          <li><a href="../premium/premium.html">Premium</a></li>
+          <li><a href="../praktyka/praktyka_s.html">Planowanie jazd</a></li>
+          <li><a href="../cennik/cennik.html">Cennik</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-block footer-offer">
+        <h4>Oferta</h4>
+        <ul>
+          <li><a href="#">Szkolenia na samochód</a></li>
+          <li><a href="#">Szkolenia na motocykl</a></li>
+          <li><a href="#">Szkolenia na autobus</a></li>
+          <li><a href="#">Instruktorzy</a></li>
+        </ul>
+      </div>
+      <div class="footer-block footer-info">
+        <h4>Informacje</h4>
+        <ul>
+          <li><!-- кнопка -->
+            <button id="downloadCert">
+              Pobierz certyfikat
+            </button>
+          </li>
+          <li><a href="#">Regulamin</a></li>
+          <li><a href="#">Polityka prywatności</a></li>
+        </ul>
+      </div>
+      <div class="stripe"></div>
+      <div class="footer-block footer-certificates">
+        <h4>Certyfikaty</h4>
+        <h1>*Certyfikat*</h1>
+        <h4>Deweloperzy:</h4>
+        <ul>
+          <li>ba53727@zut.edu.pl</li>
+          <li>sa52087@zut.edu.pl</li>
+          <li>ki53760@zut.edu.pl</li>
+          <li>sm53759@zut.edu.pl</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="praktyka_s.js"></script>
+  <script src="../logout.js"></script>
+  <script src="../certyfikat.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const openNotesBtn = document.getElementById("note"); // SVG кнопка
+      const notesModal = document.getElementById("notesModal");
+      const closeNotesBtn = document.getElementById("closeNotesModal");
+
+      // Открыть окно заметок
+      openNotesBtn.addEventListener("click", () => {
+        notesModal.classList.remove("hidden");
+        loadUserLessons(); // ← загружаем список только при открытии
+      });
+
+      // Закрыть крестиком
+      closeNotesBtn.addEventListener("click", () =>
+        notesModal.classList.add("hidden")
+      );
+
+      // Закрыть кликом по фону
+      notesModal.addEventListener("click", (e) => {
+        if (e.target === notesModal) notesModal.classList.add("hidden");
+      });
+
+      // Закрыть клавишей Esc
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !notesModal.classList.contains("hidden")) {
+          notesModal.classList.add("hidden");
+        }
+      });
+    });
+
+    const list = document.getElementById("notes-list");
+    list.classList.remove("typewriter");
+    void list.offsetWidth; // 🔥 рестарт анимации
+    list.classList.add("typewriter");
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,481 @@
+/* General Reset */
+body, h1, h2, h3, ul, li, p, div, button, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body styling */
+body {
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Статичная шапка */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Высота шапки */
+    z-index: 1000;
+    border-bottom: 1px solid rgba(40, 40, 40, 0.60);
+    background: #F0F0F0;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Разделяем логотип и меню */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Логотип */
+.logo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px; /* Расстояние между LEO и DRIVE */
+    text-align: left;
+}
+
+.leo {
+    color: #FFB60A;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #FFB60A;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.drive {
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+/* Меню */
+.nav-menu {
+    display: flex;
+    justify-content: center; /* Центрируем кнопки */
+    gap: 60px; /* Расстояние между кнопками */
+    flex: 1; /* Распределяем пространство */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #282828; /* Основной цвет текста */
+    font-family: 'Onest', sans-serif; /* Указанный шрифт */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    transition: color 0.3s ease; /* Плавное изменение цвета */
+}
+
+/* Стили при наведении */
+.nav-link:hover {
+    color: #FFB60A; /* Цвет при наведении */
+}
+
+/* Стили при нажатии */
+.nav-link:active {
+    color: #C56302; /* Цвет текста при нажатии */
+}
+
+#themeToggle {
+    all: unset;
+    cursor: pointer;
+    position: absolute;
+    right: 50px; /* Отступ от правого края */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px; /* По желанию, размер иконки */
+    line-height: 1;
+  }
+  
+
+/* Медиазапросы для мобильных устройств */
+@media (max-width: 768px) {
+    .header {
+        height: 70px; /* Уменьшенная высота на мобильных устройствах */
+        padding: 0 10px;
+    }
+    .leo, .drive {
+        font-size: 20px; /* Уменьшенный размер текста */
+    }
+    .nav-menu {
+        gap: 20px; /* Меньшее расстояние между кнопками */
+    }
+    .nav-link {
+        font-size: 14px; /* Уменьшенный шрифт для кнопок */
+    }
+}
+
+/* Светлая тема (по умолчанию) */
+.light-theme {
+    background-color: #F0F0F0;
+    color: #000;
+}
+
+.material-item a{
+    color: black;
+}
+
+/* Тёмная тема */
+.dark-theme {
+    background-color: #1a1a1a;
+    color: #ccc;
+}
+
+.dark-theme .category-btn, .dark-theme .progress-card, .dark-theme .info-section{
+    background-color: #2b2b2b;
+}
+
+.dark-theme .header {
+    background-color: #2b2b2b;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .nav-link {
+    color: #ccc;
+}
+
+.dark-theme .nav-link:hover {
+    color: #FFB60A;
+}
+
+.dark-theme .material-item a{
+    color: white;
+}
+
+/* Main Content */
+.main-content {
+    padding: 90px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.category-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.category-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 3px solid #ff9800;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #ff9800;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.category-btn:hover {
+    background-color: #ff9800;
+    color: #fff;
+}
+
+/* Test Section */
+.test-section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.test-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+.progress-cards {
+    display: flex;
+    flex-direction: column; /* Расположение в столбик */
+    gap: 20px;
+    align-items: flex-start; /* Выравнивание по левой стороне */
+    flex-shrink: 0;
+}
+
+.progress-card {
+    background-color: #fff;
+    border: 3px solid #ff9800;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    width: 500px; /* Фиксированная ширина карточек */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.progress-card h3 {
+    margin-bottom: 10px;
+}
+
+.progress-circle {
+    width: 80px;
+    height: 80px;
+    border: 3px solid #ff9800;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.info-section {
+    background-color: #fff; /* Белый фон */
+    border: 3px solid #ff9800; /* Оранжевая обводка */
+    border-radius: 10px; /* Закругленные углы */
+    padding: 20px; /* Отступы внутри */
+    width: 100%; /* Ширина секции */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    flex-grow: 1; /* Заполнение оставшегося пространства */
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.cups{
+    display: flex;
+    flex-direction: column;
+    gap: 7.5px;
+}
+
+.users-and-score-list{
+    display: flex;
+    flex-direction: column;
+    gap: 7.5px;
+    width: 100%;
+}
+.user-and-score{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 25px;
+    gap: 4px;
+    width: 100%;
+}
+.user{
+    text-align: center;
+    text-wrap: nowrap;
+    word-wrap: nowrap;
+}
+
+.line{
+    display: flex;
+    border-bottom: 1px dashed #000;
+    width: 100%;
+    height: 13px;
+}
+
+
+/* Materials Section */
+.materials-section {
+    margin-top: 20px;
+}
+
+.materials-list {
+    list-style: none;
+}
+
+.material-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.materials-section{ margin-top:40px; }
+.materials-list   { display:flex; flex-direction:column; gap:10px; }
+.material-item { display:flex; justify-content:space-between; }
+.material-item button { border:none; background:none; color:#007bff; cursor:pointer; }
+.material-item button:hover { text-decoration:underline; }
+
+.empty-msg{ color:#777; font-style:italic; }
+
+@keyframes fade{ to{ opacity:1; } }
+
+.install-icon {
+    width: 20px;
+    height: 20px;
+    stroke: #cc7116;
+    transition: transform 0.2s;
+}
+  
+button:hover .install-icon {
+    transform: scale(1.1);
+}
+
+.modal {
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  width: 300px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.hidden {
+  display: none;
+}
+
+.progress-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.test-progress {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fafafa;
+    border: 1px solid #ff9800;
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+.test-progress .test-name {
+    font-weight: 500;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.progress-circle-small {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ff9800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.85em;
+    background-color: #fff;
+}
+
+
+
+@keyframes fly-in {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.progress-card {
+  animation: fly-in 0.8s ease-out both;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 rgba(255,152,0, 0.7); }
+  50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(255,152,0, 0.9); }
+  100% { transform: scale(1); box-shadow: 0 0 0 rgba(255,152,0, 0.7); }
+}
+
+.category-btn:hover {
+  animation: pulse 0.6s ease-in-out;
+}
+
+.material-item {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: fade-in-right 0.5s forwards;
+}
+
+@keyframes fade-in-right {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+[data-loaded="false"] {
+  opacity: 0;
+}
+[data-loaded="true"] {
+  opacity: 1;
+  transition: opacity 0.4s ease-in;
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Применяем к заголовкам */
+h2, h3 {
+  opacity: 0;
+  animation: fade-up 0.8s ease-out forwards;
+}
+
+/* Добавим задержки для плавности */
+h2:nth-of-type(1) { animation-delay: 0.1s; }
+h2:nth-of-type(2) { animation-delay: 0.2s; }
+h3 { animation-delay: 0.3s; }
+
+
+.dark-theme .test-progress {
+    background-color: #272727;
+    border-color: #ff9800;
+}
+
+.dark-theme .test-progress .test-name {
+    color: #f0f0f0;
+}
+
+.dark-theme .progress-circle-small {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    border-color: #ff9800;
+}

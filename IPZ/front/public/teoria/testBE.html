@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test BE</title>
+  <link rel="stylesheet" href="testB.css" />
+</head>
+
+<body>
+  <div class="container">
+    <!-- Back Button -->
+    <a href="../teoria/theory.html" id="back-button" class="back-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18" stroke="#e49022" stroke-width="2" fill="none" />
+        <polyline points="22 12 14 20 22 28" fill="none" stroke="#e49022" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </a>
+
+    <!-- Pytania -->
+    <div class="question">
+      <h3>Pytanie 1: Jakie pojazdy można prowadzić posiadając kategorię BE?</h3>
+      <div class="options">
+        <div class="option" data-correct="true"><p>A) Samochód osobowy z przyczepą o DMC powyżej 750 kg</p></div>
+        <div class="option" data-correct="false"><p>B) Motocykl z bocznym wózkiem</p></div>
+        <div class="option" data-correct="false"><p>C) Autobus</p></div>
+        <div class="option" data-correct="false"><p>D) Samochód ciężarowy powyżej 3,5 t</p></div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Kategoria BE umożliwia prowadzenie zespołu pojazdów: samochód osobowy + ciężka przyczepa.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>Pytanie 2: Czy posiadając kategorię B można ciągnąć przyczepę lekką?</h3>
+      <div class="options">
+        <div class="option" data-correct="true"><p>A) Tak, do 750 kg DMC</p></div>
+        <div class="option" data-correct="false"><p>B) Tylko z kategorią BE</p></div>
+        <div class="option" data-correct="false"><p>C) Nie, w ogóle nie można</p></div>
+        <div class="option" data-correct="false"><p>D) Tylko po autostradzie</p></div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Z kategorią B można ciągnąć przyczepę lekką (do 750 kg DMC).</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>Pytanie 3: Co to jest DMC?</h3>
+      <div class="options">
+        <div class="option" data-correct="false"><p>A) Długość maksymalna ciągnika</p></div>
+        <div class="option" data-correct="true"><p>B) Dopuszczalna Masa Całkowita</p></div>
+        <div class="option" data-correct="false"><p>C) Dokument Mocy Ciągnika</p></div>
+        <div class="option" data-correct="false"><p>D) Drgania Mechaniczne Ciężarówki</p></div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> DMC to Dopuszczalna Masa Całkowita – maksymalna masa pojazdu z ładunkiem i pasażerami.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>Pytanie 4: Jakie obowiązki ma kierowca przed podpięciem przyczepy?</h3>
+      <div class="options">
+        <div class="option" data-correct="true"><p>A) Sprawdzić zaczep, oświetlenie i hamulec przyczepy</p></div>
+        <div class="option" data-correct="false"><p>B) Włączyć wycieraczki</p></div>
+        <div class="option" data-correct="false"><p>C) Zgasić światła drogowe</p></div>
+        <div class="option" data-correct="false"><p>D) Wypompować paliwo z przyczepy</p></div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Należy dokładnie sprawdzić połączenie przyczepy z pojazdem oraz jej sprawność techniczną.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>Pytanie 5: Czy przyczepa musi mieć światła stopu?</h3>
+      <div class="options">
+        <div class="option" data-correct="true"><p>A) Tak, obowiązkowo</p></div>
+        <div class="option" data-correct="false"><p>B) Tylko przy nowoczesnych pojazdach</p></div>
+        <div class="option" data-correct="false"><p>C) Nie, jeśli nie jedzie szybko</p></div>
+        <div class="option" data-correct="false"><p>D) Nie, jeśli jest pusta</p></div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Przyczepy muszą posiadać sprawne światła pozycyjne, kierunkowskazy i światła stopu.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>Pytanie 6: Czy można jechać z przyczepą po lewej stronie drogi dwukierunkowej?</h3>
+      <div class="options">
+        <div class="option" data-correct="false"><p>A) Tak, jeśli nie ma ruchu</p></div>
+        <div class="option" data-correct="false"><p>B) Tylko na skrzyżowaniu</p></div>
+        <div class="option" data-correct="true"><p>C) Nie, to niezgodne z przepisami</p></div>
+        <div class="option" data-correct="false"><p>D) Tak, z kategorią C</p></div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Obowiązuje ruch prawostronny, wyjątki są bardzo ograniczone.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>Pytanie 7: Jak obciążyć przyczepę?</h3>
+      <div class="options">
+        <div class="option" data-correct="true"><p>A) Ciężar rozłożyć równomiernie, najcięższe rzeczy z przodu</p></div>
+        <div class="option" data-correct="false"><p>B) Cały ładunek na końcu przyczepy</p></div>
+        <div class="option" data-correct="false"><p>C) Luźno ułożyć wszystko bez zabezpieczeń</p></div>
+        <div class="option" data-correct="false"><p>D) Wszystko do jednej strony</p></div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Należy równomiernie rozłożyć ładunek, aby nie wpływał negatywnie na stabilność zestawu.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>Pytanie 8: Czy zestaw pojazdów z przyczepą może wyprzedzać na zakazie?</h3>
+      <div class="options">
+        <div class="option" data-correct="false"><p>A) Tak, jeśli droga jest pusta</p></div>
+        <div class="option" data-correct="false"><p>B) Tak, jeśli przyczepa jest lekka</p></div>
+        <div class="option" data-correct="true"><p>C) Nie, zakaz obowiązuje również zestawy</p></div>
+        <div class="option" data-correct="false"><p>D) Tak, ale tylko motocyklistów</p></div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Zestawy pojazdów muszą przestrzegać zakazów wyprzedzania – niezależnie od długości czy masy.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>Pytanie 9: Jakie lusterka są wymagane przy jeździe z przyczepą?</h3>
+      <div class="options">
+        <div class="option" data-correct="true"><p>A) Lusterka rozszerzone umożliwiające widok za przyczepę</p></div>
+        <div class="option" data-correct="false"><p>B) Tylko lusterko wsteczne</p></div>
+        <div class="option" data-correct="false"><p>C) Lusterko tylko z jednej strony</p></div>
+        <div class="option" data-correct="false"><p>D) Brak wymagań co do lusterek</p></div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Dodatkowe lusterka są wymagane, jeśli standardowe nie zapewniają wystarczającej widoczności za przyczepą.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>Pytanie 10: Jak zachować się przy zjeździe z górki z przyczepą?</h3>
+      <div class="options">
+        <div class="option" data-correct="true"><p>A) Redukować bieg, hamować silnikiem i kontrolować prędkość</p></div>
+        <div class="option" data-correct="false"><p>B) Wyłączyć silnik dla oszczędności</p></div>
+        <div class="option" data-correct="false"><p>C) Jechać na luzie</p></div>
+        <div class="option" data-correct="false"><p>D) Szybko hamować przed zakrętem</p></div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Przy zjeździe z górki ważne jest hamowanie silnikiem i zachowanie pełnej kontroli nad zestawem.</p>
+      </div>
+    </div>
+
+    <!-- Przyciski -->
+    <button class="submit-btn">Zapisz wynik</button>
+  </div>
+
+  <script src="testB.js"></script>
+</body>
+
+</html>

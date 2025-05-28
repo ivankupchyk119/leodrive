@@ -1,0 +1,1015 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style: none;
+}
+#date {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+/* Статичная шапка */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Высота шапки */
+    z-index: 1000;
+    border-bottom: 1px solid rgba(40, 40, 40, 0.60);
+    background: #F0F0F0;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Разделяем логотип и меню */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Логотип */
+.logo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px; /* Расстояние между LEO и DRIVE */
+    text-align: left;
+}
+
+.leo {
+    color: #FFB60A;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #FFB60A;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.drive {
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+/* Меню */
+.nav-menu {
+    display: flex;
+    justify-content: center; /* Центрируем кнопки */
+    gap: 60px; /* Расстояние между кнопками */
+    flex: 1; /* Распределяем пространство */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #282828; /* Основной цвет текста */
+    font-family: 'Onest', sans-serif; /* Указанный шрифт */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    transition: color 0.3s ease; /* Плавное изменение цвета */
+}
+
+/* Стили при наведении */
+.nav-link:hover {
+    color: #FFB60A; /* Цвет при наведении */
+}
+
+/* Стили при нажатии */
+.nav-link:active {
+    color: #C56302; /* Цвет текста при нажатии */
+}
+
+/* Медиазапросы для мобильных устройств */
+@media (max-width: 768px) {
+    .header {
+        height: 70px; /* Уменьшенная высота на мобильных устройствах */
+        padding: 0 10px;
+    }
+    .leo, .drive {
+        font-size: 20px; /* Уменьшенный размер текста */
+    }
+    .nav-menu {
+        gap: 20px; /* Меньшее расстояние между кнопками */
+    }
+    .nav-link {
+        font-size: 14px; /* Уменьшенный шрифт для кнопок */
+    }
+}
+
+.container{
+    margin-top: 90px;
+}
+
+.container{
+    margin-top: 90px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#instruktorList {
+    margin: 30px 0px 20px 0px;
+}
+
+#note {
+    position: absolute;
+    top: 104px;
+    right: 14px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  #note:hover {
+    transform: scale(1.15);
+  }
+
+
+  #prevWeekBtn, #nextWeekBtn {
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: transform 0.2s ease-in-out; /* <-- плавная анимация */
+  }
+  
+  #prevWeekBtn:hover, #nextWeekBtn:hover {
+    transform: scale(1.15);
+  }
+
+  .schedule-container {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .schedule-container.animate-out {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  
+  .schedule-container.animate-in {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  
+  .schedule-container.animate-in.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+
+ /* Кнопка показа формы */
+ #toggle-form {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #5c7cfa;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  transition: background 0.2s ease;
+}
+
+#toggle-form:hover {
+  background: #4c6ef5;
+}
+
+#availability-form {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: #fff7f0;
+  border: 2px solid #ffa94d;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(255, 167, 72, 0.2);
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 220px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+#availability-form.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+
+#availability-form label {
+  display: flex;
+  flex-direction: column;
+  color: #c2410c;
+  font-weight: 600;
+}
+
+#availability-form input[type="date"],
+#availability-form select {
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #ffc078;
+  border-radius: 8px;
+  background-color: #fff3e6;
+  color: #7c2d12;
+  transition: all 0.2s ease;
+}
+
+#availability-form input[type="date"]:focus,
+#availability-form select:focus {
+  outline: none;
+  border-color: #ff922b;
+  box-shadow: 0 0 0 2px rgba(255, 138, 61, 0.3);
+}
+
+#set-availability {
+  padding: 10px 12px;
+  font-size: 14px;
+  background-color: #ff922b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.1s ease;
+  align-self: flex-end;
+  font-weight: bold;
+}
+
+#set-availability:hover {
+  background-color: #f76707;
+}
+
+#set-availability:active {
+  transform: scale(0.97);
+}
+
+#toggle-form {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff922b;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 167, 72, 0.4);
+  z-index: 1001;
+}
+
+#toggle-form:hover {
+  background: #f76707;
+}
+
+/* Кастомный календарик */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: hue-rotate(20deg) saturate(5);
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
+  opacity: 0.8;
+}
+  
+
+/* === Модальное окно заметок === */
+.modal-notes {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+.modal-notes.hidden {
+    display: none;
+}
+.modal-content-notes {
+    background: #ffffff;
+    padding: 32px 36px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 460px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    position: relative;
+    border-top: 8px solid #ff7a00;
+}
+
+.close-notes {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #bbb;
+    transition: color 0.2s ease;
+}
+.close-notes:hover {
+    color: #ff7a00;
+}
+
+.modal-content-notes h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 22px;
+    color: #ff7a00;
+    text-align: center;
+}
+
+.modal-notes {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,.45);
+    z-index: 9999;
+}
+
+.hidden {
+    display: none;
+  }
+  
+  
+
+.modal-content-notes {
+    background: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: .6rem;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+}
+
+.close-notes {
+    position: absolute;
+    font-size: 1.8rem;
+    line-height: 1;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+#new-note {
+    resize: none; /* Отключает изменение размера */
+    
+}
+
+
+#add-note {
+    background: linear-gradient(135deg, #ff6600, #ff0066);
+    color: white;
+    font-weight: 800;
+    font-size: 18px;
+    padding: 16px 30px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.8), 0 0 40px rgba(255, 0, 102, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: block;
+}
+
+#add-note::before{
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, #ffb347, #ff0066);
+    opacity: 0;
+    transition: opacity 0.4s, transform 0.5s;
+    z-index: -1;
+    border-radius: 50%;
+    transform: scale(0.5);
+}
+
+#add-note:hover::before {
+    opacity: 0.5;
+    transform: scale(1.5);
+}
+
+#add-note:hover{
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 0 0 30px rgba(255, 0, 102, 0.9), 0 0 50px rgba(255, 102, 0, 0.8);
+}
+
+#add-note:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 10px rgba(255, 0, 102, 0.9), 0 0 20px rgba(255, 102, 0, 0.8);
+}
+
+#add-note{
+    margin: 50px auto 0px auto;
+}
+
+.note-indicator {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#new-note {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ff6f00;
+    color: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+    transition: border-color 0.3s ease;
+    width: 94.4%;
+    height: 180px; /* Увеличенная высота */
+    resize: vertical; /* если хочешь разрешить растягивание вручную */
+  }
+  
+  #new-note::placeholder {
+    color: #ffcc80;
+    font-style: italic;
+  }
+  
+
+
+  
+
+.schedule {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0px;
+}
+
+.schedule th, .schedule td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.schedule th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.schedule .occupied {
+    background-color: #ff9e2c;
+    color: white;
+}
+
+.schedule td {
+    height: 60px;
+    overflow-y: auto;
+    max-width: 100px;
+    box-sizing: border-box;
+}
+
+.schedule td.empty {
+    background-color: #f9f9f9;
+}
+
+.legend-container {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin: 40px auto 0px auto;
+    width: fit-content;
+    flex-wrap: nowrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    background-color: #f4f4f4;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.legend-item:hover {
+    background-color: #fff6e6;
+    transform: scale(1.1);
+}
+
+.legend-item .circle {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px #ccc;
+}
+
+
+/* Стилизация таблицы расписания */
+.schedule {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Заголовки таблицы */
+.schedule thead th {
+    background-color: #ff8000 !important; /* оранжевый цвет */
+    color: white !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 12px;
+    text-align: center;
+    border-right: 1px solid white;
+    transition: background 0.3s;
+}
+
+/* Ячейки расписания */
+.schedule tbody td {
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #eee;
+    transition: background 0.3s ease;
+    min-width: 100px;
+    height: 60px;
+}
+
+/* Время */
+.schedule tbody td:first-child {
+    font-weight: bold;
+    background-color: #f4f4f4;
+    color: #333;
+    border-right: 1px solid #ddd;
+    /* не добавляем transform или hover сюда */
+}
+
+
+/* Наведение */
+.schedule tbody td:hover {
+    background-color: #fff3e0;
+    cursor: pointer;
+}
+
+/* Цвета ячеек по статусу */
+.schedule td.green {
+    background-color: #4CAF50;
+    color: white;
+}
+.schedule td.lightgreen {
+    background-color: #81C784;
+    color: white;
+}
+.schedule td.yellow {
+    background-color: #FFEB3B;
+    color: #000;
+}
+.schedule td.grey {
+    background-color: #BDBDBD;
+    color: white;
+}
+.schedule td.black {
+    background-color: #212121;
+    color: white;
+}
+
+/* Селектор и кнопка */
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+select#users {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+.btn.orange.active {
+    background-color: #ff8000;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(255, 128, 0, 0.3);
+}
+.btn.orange.active:hover {
+    background-color: #e66b00;
+}
+
+.schedule thead th.today {
+    background-color: #d35400 !important;
+    color: white;
+    box-shadow: inset 0 -4px 0 #ffdd99;
+}
+
+.schedule th.today {
+    background-color: #d35400 !important;
+    color: #fff;
+    position: relative;
+}
+
+
+.day-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+}
+.day-label .day-date {
+    font-size: 12px;
+    font-weight: normal;
+    color: #ffe;
+}
+
+.schedule tbody td.clickable:hover {
+    background-color: #fff3e0;
+    cursor: pointer;
+    transform: scale(1.12); /* большее увеличение */
+    z-index: 2;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    position: relative;
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.2s ease;
+}
+
+
+.modal-content-notes {
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    border: 3px solid #ff6f00;
+    border-radius: 18px;
+    box-shadow:
+      0 0 20px #ff6f00,
+      0 0 40px rgba(255, 111, 0, 0.5),
+      0 0 60px rgba(255, 0, 128, 0.4);
+    padding: 32px;
+    position: relative;
+    animation: popIn 0.5s ease-out;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    backdrop-filter: blur(10px);
+  }
+  
+  @keyframes popIn {
+    0% {
+      transform: scale(0.7);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  #new-note {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ff6f00;
+    color: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+    transition: border-color 0.3s ease;
+  }
+  
+  #new-note::placeholder {
+    color: #ffcc80;
+    font-style: italic;
+  }
+  
+  #new-note:focus {
+    border-color: #ffcc00;
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  #lesson-select {
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: 2px solid #ff6f00;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: border 0.3s;
+  }
+  
+  #lesson-select option {
+    background: #2e2e2e;
+    color: #ffcc80;
+  }
+  
+  #lesson-select:focus {
+    border-color: #ffcc00;
+    outline: none;
+  }
+  
+  .modal-content-notes h3 {
+    text-align: center;
+    font-size: 28px;
+    color: #ffcc00;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #ff6f00, 0 0 10px #ff6f00;
+  }
+  
+  #notes-list {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed #ffcc00;
+    border-radius: 8px;
+    color: #fff;
+    font-family: monospace;
+    font-size: 14px;
+  }
+  
+  .close-notes {
+    color: #ff6f00;
+    font-size: 30px;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  
+  .close-notes:hover {
+    color: #ffcc00;
+    transform: scale(1.3) rotate(10deg);
+  }
+  
+  .modal-content-notes::before,
+.modal-content-notes::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -30px;
+  left: -30px;
+  width: calc(100% + 60px);
+  height: calc(100% + 60px);
+  background: radial-gradient(circle, rgba(255, 85, 0, 0.2) 0%, transparent 70%);
+  animation: flameFlicker 1.5s infinite ease-in-out;
+  border-radius: 25px;
+  pointer-events: none;
+  filter: blur(30px);
+}
+
+.modal-content-notes::after {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 80%);
+  animation: smokePulse 3s infinite ease-in-out;
+  filter: blur(50px);
+}
+
+@keyframes flameFlicker {
+    0% {
+      transform: scale(1) rotate(0deg);
+      opacity: 0.6;
+    }
+    50% {
+      transform: scale(1.05) rotate(1deg);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1) rotate(-1deg);
+      opacity: 0.7;
+    }
+  }
+  
+  @keyframes smokePulse {
+    0%, 100% {
+      transform: scale(1.2);
+      opacity: 0.05;
+    }
+    50% {
+      transform: scale(1.4);
+      opacity: 0.15;
+    }
+  }
+
+  .modal-content-notes {
+    position: relative;
+    animation: portalBurst 0.6s ease-out;
+    overflow: hidden;
+  }
+  
+  /* Вспышка */
+  .modal-content-notes::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(255, 140, 0, 0.35), transparent 70%);
+    transform: translate(-50%, -50%) scale(0.5);
+    animation: pulseFlash 1s ease-out forwards;
+    pointer-events: none;
+    z-index: -2;
+    border-radius: 50%;
+  }
+  
+  /* Искры */
+  .modal-content-notes::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(255, 215, 0, 0.1) 1px, transparent 1px);
+    background-size: 10px 10px;
+    animation: sparks 1.2s infinite linear;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.25;
+  }
+  
+  /* Вспышка анимации */
+  @keyframes pulseFlash {
+    0% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(0.3);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1.8);
+    }
+  }
+  
+  /* Всплытие окна с тряской */
+  @keyframes portalBurst {
+    0% {
+      transform: scale(0.7) rotateX(45deg);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.05) rotateX(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1) rotateX(0deg);
+    }
+  }
+  
+  /* Искры — лёгкое движение */
+  @keyframes sparks {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 20px 20px;
+    }
+  }
+  .modal-content-notes h3 {
+    text-align: center;
+    font-size: 28px;
+    color: #ffcc00;
+    margin-bottom: 20px;
+    text-shadow:
+      0 0 5px #ffcc00,
+      0 0 10px #ff9900,
+      0 0 20px #ff8000,
+      0 0 40px rgba(255, 128, 0, 0.5);
+    animation: neonPulse 1.5s infinite ease-in-out;
+  }
+  
+  @keyframes neonPulse {
+    0%, 100% {
+      text-shadow:
+        0 0 5px #ffcc00,
+        0 0 10px #ff9900,
+        0 0 20px #ff8000,
+        0 0 40px rgba(255, 128, 0, 0.5);
+    }
+    50% {
+      text-shadow:
+        0 0 2px #ffcc00,
+        0 0 4px #ff9900,
+        0 0 8px #ff8000,
+        0 0 16px rgba(255, 128, 0, 0.3);
+    }
+  }
+  #notes-list {
+    font-family: 'Courier New', monospace;
+    color: #00ffcc;
+    white-space: pre-wrap;
+    animation: typewriter 1s steps(20) 1;
+    border-left: 2px solid #00ffcc;
+    padding-left: 10px;
+    overflow: hidden;
+  }
+  
+  @keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+      
+
+  #instruktorList, #users {
+    appearance: none;
+    background: #fff;
+    color: #1a1a1a;
+    border: 1.5px solid #ff8000;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-family: 'Segoe UI', sans-serif;
+    border-radius: 8px;
+    box-shadow: 0 0 6px rgba(255, 128, 0, 0.1);
+    transition: all 0.2s ease;
+    width: 100%;
+    max-width: 220px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23ff8000' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+  }
+  
+  #instruktorList:hover, #users:hover {
+    border-color: #ffa000;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.25);
+  }
+  
+  #instruktorList:focus, #users:focus {
+    outline: none;
+    border-color: #ff9900;
+    box-shadow: 0 0 12px rgba(255, 153, 0, 0.35);
+  }
+  
+  #instruktorList option, #users option {
+    background-color: #ffffff;
+    color: #000;
+    font-size: 14px;
+    padding: 4px 6px;
+  }
+
+  
+  /* Серый фон только для пустых ячеек в сегодняшнем столбце */
+.schedule td.today-col:not([data-occupied]), .schedule td.today-col:not([data-occupied]):hover {
+  background-color: #d6d6d6;
+}
+
+.schedule tbody td {
+  transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.2s ease;
+  position: relative;
+  z-index: 0;
+}
+
+.schedule tbody td:hover {
+  transform: scale(1.08); /* Увеличение */
+  z-index: 2;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+  
+  

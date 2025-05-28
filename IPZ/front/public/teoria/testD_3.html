@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test D – część 3</title>
+  <link rel="stylesheet" href="testD.css" />
+</head>
+<body>
+<div class="container">
+
+  <!-- Back Button -->
+  <a href="../teoria/theory.html" id="back-button" class="back-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="18" stroke="#e49022" stroke-width="2" fill="none"/>
+      <polyline points="22 12 14 20 22 28" fill="none" stroke="#e49022" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+
+  <!-- Theme Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeToggle = document.getElementById('themeToggle');
+      const body = document.body;
+      const savedTheme = localStorage.getItem('theme') || 'light-theme';
+      body.classList.add(savedTheme);
+      themeToggle.textContent = savedTheme === 'dark-theme' ? '🌙' : '☀️';
+
+      themeToggle.addEventListener('click', () => {
+        body.classList.toggle('light-theme');
+        body.classList.toggle('dark-theme');
+        const currentTheme = body.classList.contains('dark-theme') ? 'dark-theme' : 'light-theme';
+        themeToggle.textContent = currentTheme === 'dark-theme' ? '🌙' : '☀️';
+        localStorage.setItem('theme', currentTheme);
+      });
+    });
+  </script>
+
+  <!-- Questions -->
+  <div class="question">
+    <h3>Pytanie 1: Jaki element autobusu jest przeznaczony do zapobiegania blokowaniu kół podczas hamowania?</h3>
+    <div class="options">
+      <div class="option" data-correct="true"><p>A) ABS</p></div>
+      <div class="option" data-correct="false"><p>B) ESP</p></div>
+      <div class="option" data-correct="false"><p>C) ASR</p></div>
+      <div class="option" data-correct="false"><p>D) EBS</p></div>
+    </div>
+    <div class="explanation" style="display: none;">
+      <p><strong>Wyjaśnienie:</strong> ABS (Anti-lock Braking System) zapobiega blokowaniu kół podczas hamowania, co zwiększa kontrolę nad pojazdem.</p>
+    </div>
+  </div>
+
+  <div class="question">
+    <h3>Pytanie 2: Jak należy przewozić osoby niepełnosprawne w autobusie?</h3>
+    <div class="options">
+      <div class="option" data-correct="false"><p>A) W zwykłych miejscach siedzących</p></div>
+      <div class="option" data-correct="true"><p>B) W specjalnie przystosowanych miejscach z pasami bezpieczeństwa</p></div>
+      <div class="option" data-correct="false"><p>C) W przedniej części autobusu</p></div>
+      <div class="option" data-correct="false"><p>D) Na końcu autobusu</p></div>
+    </div>
+    <div class="explanation" style="display: none;">
+      <p><strong>Wyjaśnienie:</strong> Autobusy powinny mieć odpowiednie udogodnienia dla osób niepełnosprawnych, w tym miejsca przystosowane do przewozu wózków inwalidzkich.</p>
+    </div>
+  </div>
+
+  <div class="question">
+    <h3>Pytanie 3: Co oznacza znak „zakaz wjazdu pojazdów przewożących więcej niż X osób”?</h3>
+    <div class="options">
+      <div class="option" data-correct="false"><p>A) Zakaz dla wszystkich pojazdów</p></div>
+      <div class="option" data-correct="true"><p>B) Zakaz wjazdu autobusów przewożących więcej niż podana liczba pasażerów</p></div>
+      <div class="option" data-correct="false"><p>C) Zakaz wjazdu samochodów ciężarowych</p></div>
+      <div class="option" data-correct="false"><p>D) Nakaz jazdy prosto</p></div>
+    </div>
+    <div class="explanation" style="display: none;">
+      <p><strong>Wyjaśnienie:</strong> Taki znak ogranicza wjazd autobusów przewożących dużą liczbę pasażerów do wybranych stref, np. wąskich ulic w centrach miast.</p>
+    </div>
+  </div>
+
+  <div class="question">
+    <h3>Pytanie 4: Jak często kierowca autobusu musi przechodzić badania lekarskie?</h3>
+    <div class="options">
+      <div class="option" data-correct="false"><p>A) Raz na 10 lat</p></div>
+      <div class="option" data-correct="true"><p>B) Co 5 lat, a po 60. roku życia co 30 miesięcy</p></div>
+      <div class="option" data-correct="false"><p>C) Tylko przed egzaminem</p></div>
+      <div class="option" data-correct="false"><p>D) Co 3 lata</p></div>
+    </div>
+    <div class="explanation" style="display: none;">
+      <p><strong>Wyjaśnienie:</strong> Badania okresowe są obowiązkowe i mają na celu ocenę zdolności psychofizycznych kierowcy zawodowego.</p>
+    </div>
+  </div>
+
+  <div class="question">
+    <h3>Pytanie 5: Co należy zrobić, gdy system hamulcowy autobusu przestaje działać?</h3>
+    <div class="options">
+      <div class="option" data-correct="false"><p>A) Zatrzymać pojazd dopiero na najbliższym parkingu</p></div>
+      <div class="option" data-correct="true"><p>B) Natychmiast zatrzymać pojazd w bezpiecznym miejscu i powiadomić służby</p></div>
+      <div class="option" data-correct="false"><p>C) Jechać dalej z włączonymi światłami awaryjnymi</p></div>
+      <div class="option" data-correct="false"><p>D) Skorzystać z hamulca ręcznego do dalszej jazdy</p></div>
+    </div>
+    <div class="explanation" style="display: none;">
+      <p><strong>Wyjaśnienie:</strong> Awaria hamulców wymaga natychmiastowego zatrzymania pojazdu i wezwania pomocy technicznej.</p>
+    </div>
+  </div>
+
+  <div class="question">
+    <h3>Pytanie 6: Jakie dokumenty powinien mieć przy sobie kierowca autobusu podczas kursu?</h3>
+    <div class="options">
+      <div class="option" data-correct="true"><p>A) Prawo jazdy, dowód rejestracyjny, dokumenty przewozowe, dowód ubezpieczenia</p></div>
+      <div class="option" data-correct="false"><p>B) Tylko prawo jazdy</p></div>
+      <div class="option" data-correct="false"><p>C) Dowód osobisty i kartę pojazdu</p></div>
+      <div class="option" data-correct="false"><p>D) Wyłącznie licencję przewozową</p></div>
+    </div>
+    <div class="explanation" style="display: none;">
+      <p><strong>Wyjaśnienie:</strong> Kierowca musi mieć komplet dokumentów niezbędnych do prowadzenia i legalnego przewozu osób.</p>
+    </div>
+  </div>
+
+  <div class="question">
+    <h3>Pytanie 7: Co powinno być na wyposażeniu autobusu zgodnie z przepisami?</h3>
+    <div class="options">
+      <div class="option" data-correct="false"><p>A) Apteczka, kamera cofania i wi-fi</p></div>
+      <div class="option" data-correct="true"><p>B) Gaśnica, trójkąt ostrzegawczy i apteczka</p></div>
+      <div class="option" data-correct="false"><p>C) CB-radio i tachograf</p></div>
+      <div class="option" data-correct="false"><p>D) Klimatyzacja i wyświetlacz kierunku jazdy</p></div>
+    </div>
+    <div class="explanation" style="display: none;">
+      <p><strong>Wyjaśnienie:</strong> Wyposażenie pojazdu musi spełniać normy bezpieczeństwa i zawierać środki do reagowania w razie wypadku.</p>
+    </div>
+  </div>
+
+  <div class="question">
+    <h3>Pytanie 8: Jakie są obowiązki kierowcy po zakończeniu kursu?</h3>
+    <div class="options">
+      <div class="option" data-correct="false"><p>A) Pozostawić pojazd bez nadzoru</p></div>
+      <div class="option" data-correct="true"><p>B) Zabezpieczyć pojazd i sprawdzić stan techniczny</p></div>
+      <div class="option" data-correct="false"><p>C) Wyłączyć tylko silnik</p></div>
+      <div class="option" data-correct="false"><p>D) Wypełnić raport i opuścić miejsce postoju</p></div>
+    </div>
+    <div class="explanation" style="display: none;">
+      <p><strong>Wyjaśnienie:</strong> Kierowca odpowiada za pojazd do momentu jego prawidłowego zabezpieczenia i zgłoszenia ewentualnych usterek.</p>
+    </div>
+  </div>
+
+  <div class="question">
+    <h3>Pytanie 9: Jak zachować się przy przejeździe kolejowym bez rogatek?</h3>
+    <div class="options">
+      <div class="option" data-correct="true"><p>A) Zatrzymać się, upewnić o braku pociągu i przejechać</p></div>
+      <div class="option" data-correct="false"><p>B) Przejechać bez zatrzymania, jeśli nie ma sygnału</p></div>
+      <div class="option" data-correct="false"><p>C) Zwolnić do 10 km/h</p></div>
+      <div class="option" data-correct="false"><p>D) Włączyć światła awaryjne</p></div>
+    </div>
+    <div class="explanation" style="display: none;">
+      <p><strong>Wyjaśnienie:</strong> Kierowca autobusu ma obowiązek zatrzymać się przed przejazdem i upewnić, że nie nadjeżdża pociąg.</p>
+    </div>
+  </div>
+
+  <div class="question">
+    <h3>Pytanie 10: Jakie są skutki jazdy z nadmierną ilością pasażerów?</h3>
+    <div class="options">
+      <div class="option" data-correct="false"><p>A) Lepsza stabilność pojazdu</p></div>
+      <div class="option" data-correct="true"><p>B) Wydłużenie drogi hamowania i możliwość nałożenia mandatu</p></div>
+      <div class="option" data-correct="false"><p>C) Oszczędność paliwa</p></div>
+      <div class="option" data-correct="false"><p>D) Skrócenie czasu przejazdu</p></div>
+    </div>
+    <div class="explanation" style="display: none;">
+      <p><strong>Wyjaśnienie:</strong> Przeciążenie autobusu obniża bezpieczeństwo jazdy i jest karalne.</p>
+    </div>
+  </div>
+
+  <button class="submit-btn">Zapisz wynik</button>
+</div>
+<script src="testD.js"></script>
+</body>
+</html>

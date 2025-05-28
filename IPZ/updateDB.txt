@@ -1,0 +1,4 @@
+db.schedules.updateMany(
+  { type: { $in: ['wyklad', 'praktyka', 'egzamin_t','egzamin_p', 'latwo'] } }, 
+  { $set: { type: 'praktyka' } }
+);

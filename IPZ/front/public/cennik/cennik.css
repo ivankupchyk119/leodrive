@@ -1,0 +1,200 @@
+/* ───────────────────────────────
+   GLOBAL RESET & BASE
+   ─────────────────────────────── */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Onest',sans-serif;
+    background:#f9f9f9;
+    color:#000;
+}
+
+/* ───────────────────────────────
+   HEADER
+   ─────────────────────────────── */
+.header{
+    position:fixed;
+    top:0;left:0;
+    width:100%;
+    height:80px;
+    z-index:1000;
+    border-bottom:1px solid rgba(40,40,40,.60);
+    background:#F0F0F0;
+    box-shadow:0 4px 4px rgba(0,0,0,.25);
+    padding:0 15px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    transition:background-color .3s ease,box-shadow .3s ease;
+}
+
+/* logo */
+.logo{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    text-align:left;
+}
+.leo  {color:#FFB60A;-webkit-text-stroke:.5px #FFB60A;font:900 24px/1 'Inter',sans-serif;}
+.drive{color:#000;font:900 24px/1 'Inter',sans-serif;}
+
+/* nav */
+.nav-menu{
+    display:flex;
+    justify-content:center;
+    gap:80px;
+    flex:1;
+}
+#profileButton{border:none;outline:none;cursor:pointer;}
+.nav-link{color:#282828;text-decoration:none;font:500 16px/normal 'Onest',sans-serif;transition:color .3s;}
+.nav-link:hover {color:#FFB60A;}
+.nav-link:active{color:#C56302;}
+
+/* mobile */
+@media(max-width:768px){
+    .header   {height:70px;padding:0 10px;}
+    .leo,
+    .drive    {font-size:20px;}
+    .nav-menu {gap:20px;}
+    .nav-link {font-size:14px;}
+}
+
+/* ───────────────────────────────
+   PAGE HEADINGS / HERO
+   ─────────────────────────────── */
+section{
+    /* text-align:center;  ─ убрано, чтобы не наследовалось вниз */
+    margin:100px 0 30px;
+}
+.section-title,
+.section-subtitle{ text-align:center; }
+
+section  {color:#282828;font-size:47px;font-weight:900;margin-bottom:10px;animation: bounceIn 1.5s ease;}
+
+@keyframes bounceIn {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    60% {
+        transform: translateY(15px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.section-subtitle{color:#000;font-size:24px;font-weight:700;}
+
+/* hero images */
+.images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+    overflow: hidden; /* не даём содержимому вылазить */
+}
+
+.images img {
+    max-width: 100%;        /* адаптивная ширина */
+    height: auto;           /* сохраняем пропорции */
+    position: relative;     /* убрали left, чтобы не смещалось */
+    z-index: 1;             /* чтобы не перекрывало другие элементы */
+    object-fit: contain;    /* аккуратное масштабирование */
+    animation: fadeInImage 1.5s ease-out;
+}
+
+@keyframes fadeInImage {
+    0% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ───────────────────────────────
+   SERVICE CARDS
+   ─────────────────────────────── */
+.services{
+    max-width:1400px;
+    margin:0 auto;
+    text-align:left;               /* ВЫРАВНИВАЕМ ВЛЕВО */
+}
+
+.service{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    max-width:1371px;
+    height:70px;
+    border:3px solid #FF8000;
+    border-radius:21px;
+    background:#fff;
+    box-shadow:0 4px 4px rgba(0,0,0,.25);
+    padding:10px;
+    margin-bottom:15px;
+    transform: translateY(30px);
+    animation: slideIn 0.8s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-info{display:flex;align-items:center;}
+.service-info svg{margin-right:10px;}
+
+.label{
+    font-size:18px;
+    font-weight:400;
+    line-height:normal;
+    color:rgba(0,0,0,.69);
+    margin:5px 0;
+}
+
+.service button{background:none;border:none;cursor:pointer;}
+
+/* ───────────────────────────────
+   EXPANDABLE PRICE BLOCKS
+   ─────────────────────────────── */
+.service-details{
+    text-align:left;               /* убираем центрирование */
+    margin-top:10px;
+    transition:opacity .3s ease,max-height .3s ease;
+    overflow:hidden;
+    opacity:0;
+    max-height:0;
+}
+
+/* список цен */
+.service-details ul{
+    list-style-type:disc;
+    list-style-position:outside;
+    margin-left:25px;
+    padding-left:0;
+}
+
+.service-details li{
+    font-size:18px;
+    font-weight:500;
+    line-height:1.4;
+    color:#282828;
+    margin:6px 0;
+}
+.service-details li span{color:#FF8000;}

@@ -1,0 +1,108 @@
+/* ======= Градиентный фон и общая раскладка (как на странице логина) ======= */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    /* тот же градиент #FF7A00 → #FF0000 */
+    background: linear-gradient(90deg, #ff7a00, #ff0000);
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* ======= Каркас ======= */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.content-box {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ======= Левая колонка с формой (по стилистике .login-section) ======= */
+.update-section {
+    flex: 1;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.update-section h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.update-section p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* ======= Форма ======= */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-group input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #ff7a00;
+}
+
+/* ======= Кнопка (наследует стиль btn-signin) ======= */
+.btn-update {
+    background: #ff7a00;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.btn-update:hover {
+    background: #e06900;
+}
+
+/* ======= Сообщение об ошибке ======= */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}

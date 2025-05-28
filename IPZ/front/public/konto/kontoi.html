@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konto</title>
+  <link rel="stylesheet" href="konto.css">
+  <link rel="stylesheet" href="../footer.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <span class="leo">LEO</span>
+      <span class="drive">DRIVE</span>
+    </div>
+    <nav class="nav-menu">
+      <a href="../praktyka/praktyka_i.html" class="nav-link">ZAJĘCIA PRAKTYCZNE</a>
+      <a href="../chat/chat.html" class="nav-link">CHAT</a>
+      <a href="#" id="logout-btn" class="nav-link">LOG OUT</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="info-section">
+      <!-- Кнопка "Добавить материалы" (для инструкторов) -->
+      <button id="addMaterialsBtn" class="btn-add-materials" style="display: none;" aria-label="Dodaj materiały">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#ff7a00" xmlns="http://www.w3.org/2000/svg">
+          <line x1="12" y1="5" x2="12" y2="19" stroke="#ff7a00" stroke-width="2.5" stroke-linecap="round" />
+          <line x1="5" y1="12" x2="19" y2="12" stroke="#ff7a00" stroke-width="2.5" stroke-linecap="round" />
+        </svg>
+      </button>
+
+      <button class="btn-notes" id="showNotesBtn" onclick="openNotesModal()" aria-label="Otwórz notes">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M20.1305 3.15961C19.568 2.5972 18.805 2.28125 18.0095 2.28125C17.214 2.28125 16.4511 2.5972 15.8885 3.15961L15.1815 3.86761L20.1315 8.81761L20.8375 8.11061C21.1162 7.83203 21.3372 7.50129 21.488 7.13728C21.6388 6.77327 21.7164 6.38312 21.7164 5.98911C21.7164 5.5951 21.6388 5.20495 21.488 4.84094C21.3372 4.47693 21.1162 4.14619 20.8375 3.86761L20.1305 3.15961ZM18.7165 10.2316L13.7665 5.28161L4.67654 14.3726C4.47762 14.5716 4.33866 14.8224 4.27554 15.0966L3.24654 19.5516C3.2082 19.717 3.21259 19.8894 3.25932 20.0526C3.30604 20.2159 3.39355 20.3645 3.5136 20.4846C3.63365 20.6046 3.78228 20.6921 3.9455 20.7388C4.10872 20.7856 4.28115 20.79 4.44654 20.7516L8.90254 19.7236C9.17634 19.6603 9.42686 19.5214 9.62554 19.3226L18.7165 10.2316Z"
+            fill="#FF8000" />
+        </svg>
+      </button>
+
+
+      <div class="avatar-container">
+          <img src="/front/images/ultradefolt.png" alt="User Avatar" class="avatar" id="main-avatar"/>
+          <div class="edit-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 
+               7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 
+               0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+              />
+            </svg>
+          </div>
+        </div>
+      <h1 id="user-name">Imię i nazwisko</h1>
+      <h2 id="user-role">Rola użytkownika</h2>
+
+      <div class="info-box">
+        <div class="info-row">
+          <p class="info-label"><strong>Informacje:</strong></p>
+          <p id="user-category">Kategoria: <span class="category-text">Nieokreślona</span></p>
+        </div>
+      </div>
+
+      <div class="father-div" id="info">
+        <!-- Тут будет добавляться дополнительная информация -->
+      </div>
+    </section>
+  </main>
+
+  <!-- ВСПЛЫВАЮЩАЯ ПАНЕЛЬ С АВАТАРАМИ -->
+  <div id="avatar-picker" class="hidden">
+    <div id="close-picker">✖</div>
+    <div class="avatar-options-container">
+      <img src="/front/images/Ben.jpg" class="avatar-option">
+      <img src="/front/images/defolt_man.png" class="avatar-option">
+      <img src="/front/images/defolt_woman.png" class="avatar-option">
+      <img src="/front/images/Vovchyk.png" class="avatar-option">
+      <img src="/front/images/Billy.jpg" class="avatar-option">
+      <img src="/front/images/Maximka.jpg" class="avatar-option">
+      <img src="/front/images/Walter.jpg" class="avatar-option">
+    </div>
+    <div style="margin-top: 10px;">
+      <label for="upload-avatar" class="nav-link" style="cursor:pointer; color:#ff7a00;">Wybierz własny avatar</label>
+      <input type="file" id="upload-avatar" accept="image/*" style="display:none;">
+    </div>
+  </div>
+
+  <!-- ========  Мини‑вкладка (модальное окно)  =========================== -->
+  <div id="materialModal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h3>Prześlij materiały</h3>
+      <form id="materialForm">
+        <input name="title" type="text" placeholder="Nazwa pliku" required>
+        <textarea name="description" placeholder="Opis (opcjonalnie)"></textarea>
+        <input type="url" name="link" placeholder="Wklej link (opcjonalnie)">
+        <input name="file" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.png">
+        <button class="wyslijBtn" type="submit">Wyślij</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="notesModal" class="modal hidden">
+        <div class="modal-content">
+          <span id="closeNotesModal" class="close">&times;</span>
+          <h3>Notatki od studentów</h3>
+          <div id="notes-list" class="notes-container"></div>
+        </div>
+      </div>
+
+  <!-- Footer -->
+  <footer>
+    <div style="height:unset" class="footer-content">
+      <div class="footer-block logo">
+        <img src="/front/images/logofull.png" id="complete-logo" alt="Logo">
+        <h4>LeoDrive Nauka Jazdy</h4>
+        <p>Adres| 00-000 Szczecin</p>
+        <p>Informacja czynna w godzinach 11:00 - 16:00</p>
+        <p>ba53727@zut.edu.pl</p>
+        <p>Kontakt: +48 000 000 000</p>
+        <p id="sendMessage">napisz do nas</p>
+      </div>
+      <div class="stripe"></div>
+      <div class="footer-block footer-menu">
+        <h4>Linki</h4>
+        <ul>
+          <li><a href="/front/public/konto/kontoSetComent.html">Napisz komentarz do instruktora</a></li>
+          <li><a href="https://forms.gle/JZBGsN8evk8yTzax9">Wypełnij formularz</a></li>
+          <li><a href="https://www.facebook.com/groups/2082595865487121?locale=pl_PL"><img
+                src="/front/images/FB_Icon.svg" alt="Facebook"></a></li>
+          <li><a href="https://t.me/+Bw2jUh57njxmNGZi"><img src="/front/images/Telegram_Icon.svg"
+                alt="Telegram Channel"></a></li>
+          <li><a href="https://www.instagram.com/leodrive_official/"><img src="/front/images/Instagram_Icon.svg"
+                alt="Our Instagram"></a></li>
+        </ul>
+      </div>
+      <div class="footer-block footer-menu">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="../Strona Glowna/main.html">Strona Glowna</a></li>
+          <li><a href="../Prawo Jazdy/PrawoJazdy.html">Prawo Jazdy</a></li>
+          <li><a href="../premium/premium.html">Premium</a></li>
+          <li><a href="../praktyka/praktyka_i.html">Planowanie jazd</a></li>
+          <li><a href="../cennik/cennik.html">Cennik</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-block footer-offer">
+        <h4>Oferta</h4>
+        <ul>
+          <li><a href="#">Szkolenia na samochód</a></li>
+          <li><a href="#">Szkolenia na motocykl</a></li>
+          <li><a href="#">Szkolenia na autobus</a></li>
+          <li><a href="#">Instruktorzy</a></li>
+        </ul>
+      </div>
+      <div class="footer-block footer-info">
+        <h4>Informacje</h4>
+        <ul>
+          <li><!-- кнопка -->
+            <button id="downloadCert">
+              Pobierz certyfikat
+            </button></li>
+          <li><a href="#">Regulamin</a></li>
+          <li><a href="#">Polityka prywatności</a></li>
+        </ul>
+      </div>
+      <div class="stripe"></div>
+      <div class="footer-block footer-certificates">
+        <h4>Certyfikaty</h4>
+        <h1>*Certyfikat*</h1>
+        <h4>Deweloperzy:</h4>
+        <ul>
+          <li>ba53727@zut.edu.pl</li>
+          <li>sa52087@zut.edu.pl</li>
+          <li>ki53760@zut.edu.pl</li>
+          <li>sm53759@zut.edu.pl</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="kontoi.js"></script>
+  <script src="../sendToEmail.js"></script>
+  <script src="./jointScript.js"></script>
+  <script src="../logout.js"></script>
+  <script>
+    function openNotesModal() {
+      document.getElementById('notesModal').classList.remove('hidden');
+    }
+  
+    function closeNotesModal() {
+      document.getElementById('notesModal').classList.add('hidden');
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="../certyfikat.js"></script>
+  
+</body>
+
+</html>

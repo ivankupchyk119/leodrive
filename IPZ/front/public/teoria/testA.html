@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Test</title>
+    <link rel="stylesheet" href="testA.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Back Button -->
+        <a href="../teoria/theory.html" id="back-button" class="back-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="18" stroke="#e49022" stroke-width="2" fill="none" />
+                <polyline points="22 12 14 20 22 28" fill="none" stroke="#e49022" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </a>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const themeToggle = document.getElementById('themeToggle');
+                const body = document.body;
+
+                // 1. Установить тему при загрузке страницы
+                const savedTheme = localStorage.getItem('theme') || 'light-theme';
+                body.classList.add(savedTheme);
+                themeToggle.textContent = savedTheme === 'dark-theme' ? '🌙' : '☀️';
+
+                // 2. Добавить слушатель на кнопку
+                themeToggle.addEventListener('click', () => {
+                    // Удалить текущую тему
+                    body.classList.toggle('light-theme');
+                    body.classList.toggle('dark-theme');
+
+                    // Проверить текущую тему
+                    const currentTheme = body.classList.contains('dark-theme') ? 'dark-theme' : 'light-theme';
+
+                    // Обновить иконку
+                    themeToggle.textContent = currentTheme === 'dark-theme' ? '🌙' : '☀️';
+
+                    // Сохранить тему в localStorage
+                    localStorage.setItem('theme', currentTheme);
+                });
+            }); 
+        </script>
+        <!-- Question 1 -->
+        <div class="question">
+            <h3>Pytanie 1: Jaka jest maksymalna dopuszczalna prędkość motocykla na autostradzie w Polsce?</h3>
+            <div class="options">
+                <div class="option" data-correct="false">
+                    <p>A) 100 km/h</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>B) 120 km/h</p>
+                </div>
+                <div class="option" data-correct="true">
+                    <p>C) 140 km/h</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) 160 km/h</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> Na autostradzie w Polsce motocykle mogą poruszać się z maksymalną
+                    prędkością 140 km/h, tak samo jak samochody osobowe.</p>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+            <h3>Pytanie 2: Jak należy przewozić pasażera na motocyklu?</h3>
+            <div class="options">
+                <div class="option" data-correct="false">
+                    <p>A) Pasażer może siedzieć bokiem na motocyklu.</p>
+                </div>
+                <div class="option" data-correct="true">
+                    <p>B) Pasażer musi siedzieć przodem do kierunku jazdy, trzymając się uchwytów lub kierowcy.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>C) Pasażer nie musi używać kasku ochronnego.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) Pasażer może przewozić na kolanach dodatkowy bagaż.</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> Przepisy wymagają, aby pasażer na motocyklu siedział przodem do
+                    kierunku jazdy i był odpowiednio zabezpieczony (np. trzymając się kierowcy lub uchwytów). Pasażer
+                    musi także nosić kask ochronny.</p>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question">
+            <h3>Pytanie 3: Co oznacza nieprawidłowe ustawienie luzu na klamce sprzęgła motocykla?</h3>
+            <div class="options">
+                <div class="option" data-correct="false">
+                    <p>A) Zmniejszone zużycie paliwa.</p>
+                </div>
+                <div class="option" data-correct="true">
+                    <p>B) Problem z płynną zmianą biegów.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>C) Większą stabilność motocykla.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) Brak konieczności używania hamulców.</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> Nieprawidłowy luz na klamce sprzęgła może powodować trudności z płynną
+                    zmianą biegów, co wpływa negatywnie na komfort i bezpieczeństwo jazdy.</p>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question">
+            <h3>Pytanie 4: Jak należy się zachować podczas jazdy motocyklem w warunkach deszczowych?</h3>
+            <div class="options">
+                <div class="option" data-correct="false">
+                    <p>A) Przyspieszyć, aby jak najszybciej dotrzeć do celu.</p>
+                </div>
+                <div class="option" data-correct="true">
+                    <p>B) Zachować większy odstęp od innych pojazdów i unikać gwałtownych manewrów.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>C) Używać tylko tylnego hamulca.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) Jechać środkiem pasa, aby omijać kałuże.</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> W czasie deszczu nawierzchnia jest śliska, co zmniejsza przyczepność.
+                    Należy zwiększyć odstęp od innych pojazdów, unikać gwałtownych hamowań i skrętów, aby zachować
+                    bezpieczeństwo.</p>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question">
+            <h3>Pytanie 5: Jaki jest minimalny wiek wymagany do prowadzenia motocykla o pojemności powyżej 125 cm³</h3>
+            <div class="options">
+                <div class="option" data-correct="false">
+                    <p>A) 16 lat</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>B) 18 lat</p>
+                </div>
+                <div class="option" data-correct="true">
+                    <p>C) 20 lat (po uzyskaniu 2-letniego doświadczenia w kategorii A2)</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) 24 lata</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> Minimalny wiek na kategorię A wynosi 24 lata, ale można uzyskać
+                    uprawnienia w wieku 20 lat, jeśli posiada się co najmniej 2-letnie doświadczenie z kategorią A2.</p>
+            </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="question">
+            <h3>Pytanie 6: Jak należy zabezpieczyć motocykl przed kradzieżą podczas postoju?</h3>
+            <div class="options">
+                <div class="option" data-correct="false">
+                    <p>A) Zostawić włączony silnik, aby szybciej odjechać w razie potrzeby.</p>
+                </div>
+                <div class="option" data-correct="true">
+                    <p>B) Użyć blokady kierownicy oraz opcjonalnie dodatkowego zabezpieczenia (np. łańcucha).</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>C) Parkować wyłącznie w ustronnym miejscu.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) Ustawić motocykl tak, aby łatwo było go przestawić.</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> Zabezpieczenie kierownicy i dodatkowe środki ochrony, takie jak
+                    łańcuchy czy blokady tarczy hamulcowej, zwiększają szanse na ochronę motocykla przed kradzieżą.</p>
+            </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="question">
+            <h3>Pytanie 7: Co należy zrobić przed rozpoczęciem jazdy na motocyklu?</h3>
+            <div class="options">
+                <div class="option" data-correct="true">
+                    <p>A) Sprawdzić ciśnienie w oponach i działanie świateł.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>B) Upewnić się, że bak jest pusty.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>C) Od razu ruszyć bez przygotowania.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) Sprawdzić tylko poziom oleju silnikowego.</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> Przed jazdą należy sprawdzić ciśnienie w oponach, poziomy płynów i
+                    działanie świateł, by zapewnić bezpieczeństwo.</p>
+            </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="question">
+            <h3>Pytanie 8: Jakie światła powinien mieć włączone motocyklista w dzień?</h3>
+            <div class="options">
+                <div class="option" data-correct="false">
+                    <p>A) Żadne – światła są wymagane tylko nocą.</p>
+                </div>
+                <div class="option" data-correct="true">
+                    <p>B) Światła mijania przez cały czas jazdy.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>C) Światła drogowe.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) Światła awaryjne.</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> Zgodnie z przepisami motocyklista powinien mieć włączone światła
+                    mijania przez całą dobę.</p>
+            </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="question">
+            <h3>Pytanie 9: Jak należy przewozić bagaż na motocyklu?</h3>
+            <div class="options">
+                <div class="option" data-correct="false">
+                    <p>A) Na kolanach pasażera.</p>
+                </div>
+                <div class="option" data-correct="true">
+                    <p>B) W specjalnych kufrach lub plecaku z zabezpieczeniem.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>C) Luźno zawieszony na kierownicy.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) Przymocowany do przedniego koła.</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> Bagaż musi być odpowiednio zabezpieczony i nie może utrudniać
+                    prowadzenia ani ograniczać widoczności.</p>
+            </div>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="question">
+            <h3>Pytanie 10: Co należy zrobić, gdy motocykl zaczyna się ślizgać na zakręcie?</h3>
+            <div class="options">
+                <div class="option" data-correct="false">
+                    <p>A) Gwałtownie nacisnąć hamulec.</p>
+                </div>
+                <div class="option" data-correct="true">
+                    <p>B) Delikatnie zmniejszyć gaz i utrzymać kierunek jazdy.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>C) Przechylić motocykl jeszcze bardziej.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) Zatrzymać się jak najszybciej.</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> W czasie poślizgu ważne jest, by zachować spokój, nie hamować
+                    gwałtownie i delikatnie skorygować tor jazdy.</p>
+            </div>
+        </div>
+
+
+        <button class="submit-btn">Zapisz wynik</button>
+    </div>
+    <script src="testA.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor Reviews</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../footer.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Instructor Reviews</h1>
+        <div class="instructor-list">
+            <label for="instructorSelect">Select Instructor:</label>
+            <select id="instructorSelect">
+                <option value="" disabled selected>Loading instructors...</option>
+            </select>
+        </div>
+        <div class="review-section">
+            <h2>Write a Review</h2>
+            <div class="review-form">
+                <label for="reviewText">Your Review:</label>
+                <textarea id="reviewText" placeholder="Write your review..." required></textarea>
+                <span class="error" id="reviewError"></span>
+                <button id="submitReview">Submit Review</button>
+            </div>
+        </div>
+        <div class="review-list-section">
+            <h2>Reviews</h2>
+            <div id="reviewList" class="review-list">
+                <p>Select an instructor to view reviews.</p>
+            </div>
+        </div>
+        <div id="responseMessage" class="response-message"></div>
+    </div>
+    
+<footer class="footer">
+    <div style="height:unset" class="footer-content">
+        <div class="logo">
+            <img src="/front/images/logofull.png" id="complete-logo" alt="Logo">
+            <h4>LeoDrive Nauka Jazdy</h4>
+            <p>Adres| 00-000 Szczecin</p>
+            <p>Informacja czynna w godzinach 11:00 - 16:00</p>
+            <p>ba53727@zut.edu.pl</p>
+            <p>Kontakt: +48 000 000 000</p>
+            <p id="sendMessage">napisz do nas</p>
+        </div>
+        <div class="stripe"></div>
+        <div class="footer-menu">
+            <h4>Linki</h4>
+            <ul>
+                <li><a href="https://forms.gle/JZBGsN8evk8yTzax9">Wypełnij formularz</a></li>
+                <li><a href="/front/public/konto_reg/rejestr.html">register</a></li>
+                <li><a href="/front/public/cennik/cennik.html">cennik</a></li>
+                <li><a href="/front/public/haslo_wsp/wspomnianieHasla.html">fotgot password</a></li>
+                <li><a href="/front/public/konto/kontos.html">account user</a></li>
+                <li><a href="/front/public/konto/kontoSetComent.html">write a comment to the instructor</a></li>
+                <li><a href="/front/public/konto_login/log.html">login</a></li>
+                <li><a href="/front/public/praktyka/praktyka_i.html">practice for the instructor</a></li>
+                <li><a href="/front/public/praktyka/praktyka_s.html">practice for the student</a></li>
+                <li><a href="/front/public/Prawo%20Jazdy/PrawoJazdy.html">PrawoJazdy</a></li>
+                <li><a href="/front/public/teoria/theory.html">theory</a></li>
+            </ul>
+        </div>
+        <div class="footer-menu">
+            <h4>Menu</h4>
+            <ul>
+                <li><a href="../Strona Glowna/main.html">Strona Glowna</a></li>
+              <li><a href="../Prawo Jazdy/PrawoJazdy.html">Prawo Jazdy</a></li>
+              <li><a href="../premium/premium.html">Premium</a></li>
+              <li><a href="../praktyka/praktyka_i.html">Planowanie jazd</a></li>
+              <li><a href="../cennik/cennik.html">Cennik</a></li>
+              <li><a href="#">Kontakt</a></li>
+            </ul>
+        </div>
+        <div class="footer-offer">
+            <h4>Oferta</h4>
+            <ul>
+                <li><a href="#">Szkolenia na samochód</a></li>
+                <li><a href="#">Szkolenia na motocykl</a></li>
+                <li><a href="#">Szkolenia na autobus</a></li>
+                <li><a href="#">Premium</a></li>
+                <li><a href="#">Instruktorzy</a></li>
+            </ul>
+        </div>
+        <div class="footer-info">
+            <h4>Informacje</h4>
+            <ul>
+                <li><!-- кнопка -->
+                    <button id="downloadCert">
+                      Pobierz certyfikat
+                    </button></li>
+                <li><a href="#">Regulamin</a></li>
+                <li><a href="#">Polityka prywatności</a></li>
+            </ul>
+        </div>
+        <div class="stripe"></div>
+        <div class="footer-certificates">
+            <h4>Certyfikaty</h4>
+            <h1>*Certyfikat*</h1>
+            <h4>Deweloperzy:</h4>
+            <ul>
+                <li>ba53727@zut.edu.pl</li>
+                <li>sa52087@zut.edu.pl</li>
+                <li>ki53760@zut.edu.pl</li>
+                <li>sm53759@zut.edu.pl</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+    <script src="../certyfikat.js"></script>
+</body>
+</html>

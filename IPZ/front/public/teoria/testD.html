@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Test</title>
+  <link rel="stylesheet" href="testD.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <!-- Back Button -->
+    <a href="../teoria/theory.html" id="back-button" class="back-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18" stroke="#e49022" stroke-width="2" fill="none" />
+        <polyline points="22 12 14 20 22 28" fill="none" stroke="#e49022" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </a>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // 1. Установить тему при загрузке страницы
+        const savedTheme = localStorage.getItem('theme') || 'light-theme';
+        body.classList.add(savedTheme);
+        themeToggle.textContent = savedTheme === 'dark-theme' ? '🌙' : '☀️';
+
+        // 2. Добавить слушатель на кнопку
+        themeToggle.addEventListener('click', () => {
+          // Удалить текущую тему
+          body.classList.toggle('light-theme');
+          body.classList.toggle('dark-theme');
+
+          // Проверить текущую тему
+          const currentTheme = body.classList.contains('dark-theme') ? 'dark-theme' : 'light-theme';
+
+          // Обновить иконку
+          themeToggle.textContent = currentTheme === 'dark-theme' ? '🌙' : '☀️';
+
+          // Сохранить тему в localStorage
+          localStorage.setItem('theme', currentTheme);
+        });
+      }); 
+    </script>
+    <!-- Question 1 -->
+    <div class="question">
+      <h3>Pytanie 1: Jakie jest minimalne wymagane prawo jazdy do kierowania autobusem?</h3>
+      <div class="options">
+        <div class="option" data-correct="false">
+          <p>A) Kategoria B</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>B) Kategoria C</p>
+        </div>
+        <div class="option" data-correct="true">
+          <p>C) Kategoria D</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>D) Kategoria T</p>
+        </div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Kategoria D uprawnia do prowadzenia pojazdów przeznaczonych do przewozu więcej
+          niż 8 pasażerów oprócz kierowcy, czyli autobusów.</p>
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question">
+      <h3>Pytanie 2: Jaki jest maksymalny dopuszczalny czas jazdy bez przerwy dla kierowcy autobusu?</h3>
+      <div class="options">
+        <div class="option" data-correct="false">
+          <p>A) 2 godziny</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>B) 4 godziny</p>
+        </div>
+        <div class="option" data-correct="true">
+          <p>C) 4 godziny i 30 minut</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>D) 6 godzin</p>
+        </div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Zgodnie z przepisami dotyczącymi czasu pracy kierowców, maksymalny czas jazdy
+          bez przerwy wynosi 4 godziny i 30 minut. Po tym czasie kierowca musi zrobić przerwę trwającą co najmniej 45
+          minut.</p>
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question">
+      <h3>Pytanie 3: Jaka jest minimalna wysokość pasażera siedzącego w foteliku w autobusie wyposażonym w pasy
+        bezpieczeństwa?</h3>
+      <div class="options">
+        <div class="option" data-correct="false">
+          <p>A) 100 cm</p>
+        </div>
+        <div class="option" data-correct="true">
+          <p>B) 125 cm</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>C) 135 cm</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>D) 150 cm</p>
+        </div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Dzieci o wzroście poniżej 135 cm muszą korzystać z odpowiednich fotelików lub
+          urządzeń podtrzymujących, jeśli autobus jest wyposażony w pasy bezpieczeństwa.</p>
+      </div>
+    </div>
+
+
+
+    <!-- Question 4 -->
+    <div class="question">
+      <h3>Pytanie 4: Dzieci o wzroście poniżej 135 cm muszą korzystać z odpowiednich fotelików lub urządzeń
+        podtrzymujących, jeśli autobus jest wyposażony w pasy bezpieczeństwa.</h3>
+      <div class="options">
+        <div class="option" data-correct="false">
+          <p>A) Otworzyć wszystkie drzwi i natychmiast ruszyć.</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>B) Zapewnić stabilne zatrzymanie autobusu i włączyć światła awaryjne.</p>
+        </div>
+        <div class="option" data-correct="true">
+          <p>C) Zatrzymać autobus, otworzyć drzwi i upewnić się, że pasażerowie wsiadają lub wysiadają bezpiecznie</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>D) Pozostawić silnik wyłączony na czas wsiadania.</p>
+        </div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Bezpieczeństwo pasażerów podczas wsiadania i wysiadania jest priorytetem.
+          Kierowca musi upewnić się, że przystanek jest bezpieczny i że wszystkie osoby wsiadające lub wysiadające są
+          bezpieczne.</p>
+      </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question">
+      <h3>Pytanie 5: Jakie światła powinny być włączone w autobusie podczas postoju na przystanku w nocy?</h3>
+      <div class="options">
+        <div class="option" data-correct="false">
+          <p>A) Światła awaryjne</p>
+        </div>
+        <div class="option" data-correct="true">
+          <p>B) Światła pozycyjne</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>C) Światła mijania</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>D) Żadne</p>
+        </div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Podczas postoju w warunkach niedostatecznej widoczności należy włączyć światła
+          pozycyjne, aby autobus był widoczny dla innych uczestników ruchu.</p>
+      </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question">
+      <h3>Pytanie 6: Co należy zrobić w przypadku nagłego wypadku pasażera w autobusie?</h3>
+      <div class="options">
+        <div class="option" data-correct="false">
+          <p>A) Kontynuować jazdę do najbliższego szpitala.</p>
+        </div>
+        <div class="option" data-correct="true">
+          <p>B) Natychmiast zatrzymać autobus w bezpiecznym miejscu i udzielić pomocy.</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>C) Wezwać pomoc medyczną bez zatrzymywania pojazdu.</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>D) Poprosić innego pasażera o zajęcie się sytuacją.</p>
+        </div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> W przypadku nagłego wypadku kierowca ma obowiązek zatrzymać autobus w
+          bezpiecznym miejscu i zapewnić pierwszą pomoc lub wezwać odpowiednie służby ratunkowe.</p>
+      </div>
+    </div>
+
+    <!-- Question 7 -->
+    <div class="question">
+      <h3>Pytanie 7: Jak często należy przeprowadzać przegląd techniczny autobusu?</h3>
+      <div class="options">
+        <div class="option" data-correct="false">
+          <p>A) Co 6 miesięcy bez względu na wiek pojazdu</p>
+        </div>
+        <div class="option" data-correct="true">
+          <p>B) Co 6 miesięcy, jeśli autobus ma więcej niż 5 lat</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>C) Co 2 lata</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>D) Tylko przed podróżą międzynarodową</p>
+        </div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Autobusy mają obowiązek przechodzić badania techniczne co 6 miesięcy po 5. roku
+          eksploatacji.</p>
+      </div>
+    </div>
+
+    <!-- Question 8 -->
+    <div class="question">
+      <h3>Pytanie 8: Jakie dokumenty musi posiadać kierowca autobusu podczas przewozu osób?</h3>
+      <div class="options">
+        <div class="option" data-correct="true">
+          <p>A) Prawo jazdy kat. D, dowód rejestracyjny, ubezpieczenie, karta kierowcy</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>B) Tylko prawo jazdy</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>C) Tylko dowód osobisty</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>D) Tylko ubezpieczenie pojazdu</p>
+        </div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Kierowca autobusu przewożący osoby musi mieć przy sobie pełen zestaw dokumentów
+          potwierdzających uprawnienia i sprawność pojazdu.</p>
+      </div>
+    </div>
+
+    <!-- Question 9 -->
+    <div class="question">
+      <h3>Pytanie 9: Co powinien zrobić kierowca autobusu przed rozpoczęciem kursu?</h3>
+      <div class="options">
+        <div class="option" data-correct="false">
+          <p>A) Sprawdzić obecność pasażerów</p>
+        </div>
+        <div class="option" data-correct="true">
+          <p>B) Sprawdzić stan techniczny pojazdu, w tym oświetlenie i hamulce</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>C) Ustawić fotel pasażera</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>D) Włączyć radio dla pasażerów</p>
+        </div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Kierowca odpowiada za stan techniczny autobusu — szczególnie przed kursem z
+          pasażerami.</p>
+      </div>
+    </div>
+
+    <!-- Question 10 -->
+    <div class="question">
+      <h3>Pytanie 10: Jakie zachowanie pasażerów wymaga natychmiastowej reakcji kierowcy autobusu?</h3>
+      <div class="options">
+        <div class="option" data-correct="true">
+          <p>A) Przemieszczanie się w pojeździe podczas jazdy</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>B) Słuchanie muzyki przez słuchawki</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>C) Rozmowa telefoniczna</p>
+        </div>
+        <div class="option" data-correct="false">
+          <p>D) Otwieranie okna</p>
+        </div>
+      </div>
+      <div class="explanation" style="display: none;">
+        <p><strong>Wyjaśnienie:</strong> Przemieszczanie się w trakcie jazdy autobusem może być niebezpieczne i powinno
+          być natychmiast przerwane przez kierowcę lub zgłoszone do obsługi.</p>
+      </div>
+    </div>
+
+    <button class="submit-btn">Zapisz wynik</button>
+  </div>
+  <script src="testD.js"></script>
+</body>
+
+</html>

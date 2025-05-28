@@ -1,0 +1,399 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Onest',sans-serif;
+    background:#f9f9f9;
+    color:#000;
+}
+
+/* ───────────────────────────────
+   HEADER
+   ─────────────────────────────── */
+.header{
+    position:fixed;
+    top:0;left:0;
+    width:100%;
+    height:80px;
+    z-index:1000;
+    border-bottom:1px solid rgba(40,40,40,.60);
+    background:#F0F0F0;
+    box-shadow:0 4px 4px rgba(0,0,0,.25);
+    padding:0 15px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    transition:background-color .3s ease,box-shadow .3s ease;
+}
+
+/* logo */
+.logo{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    text-align:left;
+}
+.leo  {color:#FFB60A;-webkit-text-stroke:.5px #FFB60A;font:900 24px/1 'Inter',sans-serif;}
+.drive{color:#000;font:900 24px/1 'Inter',sans-serif;}
+
+/* nav */
+.nav-menu{
+    display:flex;
+    justify-content:center;
+    gap:80px;
+    flex:1;
+}
+#profileButton{border:none;outline:none;cursor:pointer;}
+.nav-link{color:#282828;text-decoration:none;font:500 16px/normal 'Onest',sans-serif;transition:color .3s;}
+.nav-link:hover {color:#FFB60A;}
+.nav-link:active{color:#C56302;}
+
+/* mobile */
+@media(max-width:768px){
+    .header   {height:70px;padding:0 10px;}
+    .leo,
+    .drive    {font-size:20px;}
+    .nav-menu {gap:20px;}
+    .nav-link {font-size:14px;}
+}
+
+
+main {
+    padding-top: 100px;
+    margin: 0px 211px;
+}
+
+.stripe-main {
+    background-color: #f90; /* Цвет фона линии */
+    height: 5px; /* Высота линии */
+    width: 157px; /* Ширина линии - растягиваем на всю ширину родительского контейнера */
+    margin: 40px 0; /* Отступы сверху и снизу для отделения линии от других элементов */
+    border-radius: 20px;
+}
+
+.promo, .why, .cta {
+    padding: 20px;
+}
+
+.promo h2, .why h2, .cta h2 {
+    color: #282828;
+    font-size: 37px;
+    font-weight: 800;
+}
+
+.text{
+    font-size: 26px;
+    max-width: 100%;
+}
+
+.space{
+    margin-bottom: 50px;
+} 
+
+.features, .features1 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    border: 3px solid #f90;
+    box-shadow: 0 6px 4px rgba(0, 0, 0, 0.2);
+}
+
+.image-overlay {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.base-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: auto;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.text-content h3 {
+    margin: 0 0 10px;
+    color: #282828;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.text-content p {
+    margin: 0;
+    color: #333;
+    font-size: 18px;
+}
+
+.features1 {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение блоков */
+    gap: 20px;
+}
+
+.feature1 {
+    padding: 15px;
+    border-radius: 15px;
+    border: 3px solid #f90;
+    display: flex; /* Блоки внутри могут быть выровнены горизонтально */
+    align-items: left; /* Центрируем контент по вертикали */
+    justify-content: left; /* Центрируем контент по горизонтали */
+    box-shadow: 0 6px 4px rgba(0, 0, 0, 0.2);
+}
+
+.feature1 p {
+    color: #333;
+    margin: 0;
+    font-size: 18px;
+}
+
+.cta {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    padding-bottom: 0; /* Отключаем нижний паддинг */
+}
+
+.cta-content {
+    display: flex; /* Используем Flexbox для расположения текста и изображения */
+    align-items: center; /* Центрируем элементы по вертикали */
+    justify-content: space-between; /* Разделяем текст и изображение */
+    gap: 20px;
+    flex-wrap: wrap; /* Позволяем элементам переноситься на новую строку */
+}
+
+.cta-text {
+    flex: 1; /* Текст занимает оставшееся место */
+    max-width: 100%; /* Ограничиваем ширину текста */
+}
+
+.cta h2 {
+    margin: 0;
+}
+
+.man-image {
+    max-width: 30%; /* Ограничиваем ширину изображения */
+    height: auto; /* Сохраняем пропорции изображения */
+}
+
+.image-above-footer-wrapper {
+    display: flex;
+    justify-content: flex-end;  /* Разместить справа */
+    margin-bottom: -210px;       /* Немного “заходит” на футер */
+    position: relative;
+    z-index: -1;
+}
+
+/* Плавный выезд и появление */
+.promo, .why, .cta {
+    animation: fadeSlideUp 1.5s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .promo {
+    animation-delay: 0.2s;
+  }
+  .why {
+    animation-delay: 1.2s;
+  }
+  .cta {
+    animation-delay: 2.2s;
+  }
+  
+  @keyframes fadeSlideUp {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  
+  /* Анимация фичей — появление с вращением */
+  .feature, .feature1 {
+    animation: flipFadeIn 1s ease-in-out forwards;
+    transform-origin: center;
+    opacity: 0;
+  }
+  
+  .feature:nth-child(1) { animation-delay: 0.4s; }
+  .feature:nth-child(2) { animation-delay: 0.6s; }
+  .feature:nth-child(3) { animation-delay: 0.8s; }
+  
+  .feature1:nth-child(1) { animation-delay: 0.5s; }
+  .feature1:nth-child(2) { animation-delay: 0.7s; }
+  .feature1:nth-child(3) { animation-delay: 0.9s; }
+  
+  @keyframes flipFadeIn {
+    0% {
+      transform: rotateY(90deg) scale(0.9);
+      opacity: 0;
+    }
+    100% {
+      transform: rotateY(0deg) scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Пульсация SVG иконок */
+  .image-overlay svg {
+    animation: pulseIcon 2.5s ease-in-out infinite;
+  }
+  
+  @keyframes pulseIcon {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.08);
+    }
+  }
+
+  .man-image {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95) rotate(-2deg);
+    animation: mechanicEnter 2s ease-out forwards;
+    animation-delay: 2.8s;
+    will-change: transform, opacity;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4));
+  }
+  
+  /* Появление с подъёмом и масштабом */
+  @keyframes mechanicEnter {
+    0% {
+      opacity: 0;
+      transform: translateY(50px) scale(0.95) rotate(-2deg);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(-10px) scale(1.02) rotate(1deg);
+    }
+    100% {
+        opacity: 1;
+      transform: translateY(0) scale(1) rotate(0);
+    }
+  }
+  
+  /* Лёгкая бесконечная “дышащая” анимация */
+  .image-above-footer-wrapper {
+    animation: floatEffect 4s ease-in-out infinite;
+  }
+  
+  @keyframes floatEffect {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+  
+  /* Если хочешь: световая пульсация по бокам */
+  .man-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 140%;
+    height: 140%;
+    background: radial-gradient(circle, rgba(255,124,22,0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    animation: glowPulse 5s infinite ease-in-out;
+    pointer-events: none;
+    border-radius: 50%;
+  }
+  
+  @keyframes glowPulse {
+    0%, 100% {
+      opacity: 0.2;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.1);
+    }
+  }
+  
+  .figure1, .figure2, .figure3, .figure4{
+    position: absolute;
+    flex-shrink: 1;
+}
+
+.figure1, .figure3{
+    right: 0px;
+}
+
+.figure1{
+    top: 300px;
+    width: 250px;
+    height: 570.428px;
+}
+
+.figure2{
+    top: 600px;
+    width: 300px;
+    height: 570.428px;
+}
+
+.figure3{
+    top: 1000px;
+    width: 250px;
+    height: 570.428px;
+}
+
+.figure4{
+    top: 1500px;
+    width: 250px;
+    height: 570.428px;
+}
+
+.figure1, .figure2, .figure3, .figure4 {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.2s ease-out forwards;
+  }
+
+  .figure2 {
+    animation-delay: 0.3s;
+  }
+
+  .figure3 {
+    animation-delay: 0.6s;
+  }
+
+  .figure4 {
+    animation-delay: 0.9s;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

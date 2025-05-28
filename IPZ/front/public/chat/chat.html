@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Czat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+  <!-- <a id="back-button" class="back-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" fill="none"/>
+        <polyline points="22 12 14 20 22 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>       
+  </a> -->
+<div class="chat-container">
+  <div class="sidebar" id="userList"></div>
+
+  <div class="main-chat">
+    <!-- Выбор пользователя -->
+    <div id="userSelector" style="display: none;">
+      <label for="recipient">Wybierz użytkownika:</label>
+      <select id="recipient">
+        <option value="">--</option>
+      </select>
+    </div>
+
+    <!-- Область сообщений -->
+    <div id="messages"></div>
+
+    <!-- Поле ввода сообщения -->
+    <div class="message-input-wrapper">
+      <input id="input" type="text" placeholder="Napisz wiadomość…" />
+      <button onclick="sendMessage()" class="send-btn" aria-label="Wyślij wiadomość">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="white">
+          <path d="M2 21l21-9L2 3v7l15 2-15 2z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <script>
+  // если ты сохраняешь роль пользователя после логина
+  const role = localStorage.getItem('userRole'); // или получи из сессии/куки
+
+  const backButton = document.getElementById('back-button');
+
+  if (role === 'student') {
+      backButton.href = '../konto/kontos.html';
+  } else if (role === 'instructor') {
+      backButton.href = '../konto/kontoi.html';
+  } else {
+      backButton.href = '../konto/kontos.html'; // fallback
+  }
+</script> -->
+
+
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+<script src="chat.js"></script>
+
+</body>
+</html>

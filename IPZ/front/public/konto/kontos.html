@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konto</title>
+    <link rel="stylesheet" href="konto.css" />
+    <link rel="stylesheet" href="../footer.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <span class="leo">LEO</span>
+        <span class="drive">DRIVE</span>
+      </div>
+      <nav class="nav-menu">
+        <a href="../praktyka/praktyka_s.html" class="nav-link"
+          >ZAJĘCIA PRAKTYCZNE</a
+        >
+        <a href="../teoria/theory.html" class="nav-link">ZAJĘCIA TEORETYCNE</a>
+        <a href="../chat/chat.html" class="nav-link">CHAT</a>
+        <a href="#" id="logout-btn" class="nav-link">LOG OUT</a>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <section class="info-section">
+        <!-- КНОПКА (иконка книги) -->
+        <button
+          id="openGradesModal"
+          class="btn-add-materials"
+          aria-label="Oceny"
+        >
+          <!-- SVG-книга -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="25"
+            viewBox="0 0 20 17"
+            fill="none"
+          >
+            <path
+              d="M10 15.9997C8.63183 15.2098 7.07983 14.7939 5.5 14.7939C3.92017 14.7939 2.36817 15.2098 1 15.9997V2.99972C2.36817 2.2098 3.92017 1.79395 5.5 1.79395C7.07983 1.79395 8.63183 2.2098 10 2.99972M10 15.9997C11.3682 15.2098 12.9202 14.7939 14.5 14.7939C16.0798 14.7939 17.6318 15.2098 19 15.9997V2.99972C17.6318 2.2098 16.0798 1.79395 14.5 1.79395C12.9202 1.79395 11.3682 2.2098 10 2.99972M10 15.9997V2.99972"
+              stroke="#F97316"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <div class="avatar-container">
+          <img src="/front/images/ultradefolt.png" alt="User Avatar" class="avatar" id="main-avatar"/>
+          <div class="edit-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 
+               7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 
+               0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <h1 id="name">Maria Skłodowska</h1>
+        <div class="info-box">
+          <p><strong>Info:</strong></p>
+
+          <div class="info-row">
+            <p class="info-label">Kategoria:</p>
+            <p class="info-value" id="category">B</p>
+          </div>
+
+          <div class="info-row">
+            <p class="info-label">KURS:</p>
+            <p class="info-value" id="kurs">0000-00-00/P/B kat: B</p>
+          </div>
+
+          <div class="info-row">
+            <p class="info-label">Cena kursu:</p>
+            <p class="info-value" id="cena">0,000.00 zł</p>
+          </div>
+
+          <div class="info-row">
+            <p class="info-label">Dodatkowe należności za praktykę:</p>
+            <p class="info-value">0.00 zł</p>
+          </div>
+
+          <div class="info-row">
+            <p class="info-label">Wpłaty:</p>
+            <p class="info-value" id="paid">0,000 zł</p>
+          </div>
+
+          <div class="info-row">
+            <p class="info-label">Należy zapłacić:</p>
+            <p class="info-value" id="must-pay">0.00 zł</p>
+          </div>
+        </div>
+
+        <div class="father-div" id="info"></div>
+      </section>
+    </main>
+    <!-- ВСПЛЫВАЮЩАЯ ПАНЕЛЬ С АВАТАРАМИ -->
+    <div id="avatar-picker" class="hidden">
+      <div id="close-picker">✖</div>
+      <div class="avatar-options-container">
+        <img src="/front/images/Ben.jpg" class="avatar-option" />
+        <img src="/front/images/defolt_man.png" class="avatar-option" />
+        <img src="/front/images/defolt_woman.png" class="avatar-option" />
+        <img src="/front/images/Vovchyk.png" class="avatar-option" />
+        <img src="/front/images/Billy.jpg" class="avatar-option" />
+        <img src="/front/images/Maximka.jpg" class="avatar-option" />
+        <img src="/front/images/Walter.jpg" class="avatar-option" />
+        <img src="/front/images/Lebonbon.jpeg" class="avatar-option" id="premium-avatar">
+        <img src="/front/images/squid_named_finger.png" class="avatar-option" id="premium-avatar">
+
+      </div>
+      <div style="margin-top: 10px">
+        <label
+          for="upload-avatar"
+          class="nav-link"
+          style="cursor: pointer; color: #ff7a00"
+          >Wybierz własny avatar</label
+        >
+        <input
+          type="file"
+          id="upload-avatar"
+          accept="image/*"
+          style="display: none"
+        />
+      </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО -->
+    <div id="gradesModal" class="modal hidden">
+      <div class="modal-content">
+        <button id="closeGradesModal" class="close" aria-label="Zamknij">
+          &times;
+        </button>
+
+        <h3>Oceny za zajęcia</h3>
+
+        <!-- сюда подгружаются оценки -->
+        <div id="student-grades"></div>
+
+        <button id="generate-report">Generuj raport</button>
+      </div>
+    </div>
+
+    <footer>
+      <div style="height: unset" class="footer-content">
+        <div class="footer-block logo">
+          <img src="/front/images/logofull.png" id="complete-logo" alt="Logo" />
+          <h4>LeoDrive Nauka Jazdy</h4>
+          <p>Adres| 00-000 Szczecin</p>
+          <p>Informacja czynna w godzinach 11:00 - 16:00</p>
+          <p>ba53727@zut.edu.pl</p>
+          <p>Kontakt: +48 000 000 000</p>
+          <p id="sendMessage">napisz do nas</p>
+        </div>
+        <div class="stripe"></div>
+        <div class="footer-block footer-menu">
+          <h4>Linki</h4>
+          <ul>
+            <li>
+              <a href="/front/public/konto/kontoSetComent.html"
+                >Napisz komentarz do instruktora</a
+              >
+            </li>
+            <li>
+              <a href="https://forms.gle/JZBGsN8evk8yTzax9"
+                >Wypełnij formularz</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/groups/2082595865487121?locale=pl_PL"
+                ><img src="/front/images/FB_Icon.svg" alt="Facebook"
+              /></a>
+            </li>
+            <li>
+              <a href="https://t.me/+Bw2jUh57njxmNGZi"
+                ><img
+                  src="/front/images/Telegram_Icon.svg"
+                  alt="Telegram Channel"
+              /></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/leodrive_official/"
+                ><img
+                  src="/front/images/Instagram_Icon.svg"
+                  alt="Our Instagram"
+              /></a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-block footer-menu">
+          <h4>Menu</h4>
+          <ul>
+            <li><a href="../Strona Glowna/main.html">Strona Glowna</a></li>
+            <li><a href="../Prawo Jazdy/PrawoJazdy.html">Prawo Jazdy</a></li>
+            <li><a href="../premium/premium.html">Premium</a></li>
+            <li><a href="../praktyka/praktyka_s.html">Planowanie jazd</a></li>
+            <li><a href="../cennik/cennik.html">Cennik</a></li>
+            <li><a href="#">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-block footer-offer">
+          <h4>Oferta</h4>
+          <ul>
+            <li><a href="#">Szkolenia na samochód</a></li>
+            <li><a href="#">Szkolenia na motocykl</a></li>
+            <li><a href="#">Szkolenia na autobus</a></li>
+            <li><a href="#">Instruktorzy</a></li>
+          </ul>
+        </div>
+        <div class="footer-block footer-info">
+          <h4>Informacje</h4>
+          <ul>
+            <li>
+              <!-- кнопка -->
+              <button id="downloadCert">Pobierz certyfikat</button>
+            </li>
+            <li><a href="#">Regulamin</a></li>
+            <li><a href="#">Polityka prywatności</a></li>
+          </ul>
+        </div>
+        <div class="stripe"></div>
+        <div class="footer-block footer-certificates">
+          <h4>Certyfikaty</h4>
+          <h1>*Certyfikat*</h1>
+          <h4>Deweloperzy:</h4>
+          <ul>
+            <li>ba53727@zut.edu.pl</li>
+            <li>sa52087@zut.edu.pl</li>
+            <li>ki53760@zut.edu.pl</li>
+            <li>sm53759@zut.edu.pl</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="/front/public/push.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="kontos.js"></script>
+    <script src="./jointScript.js"></script>
+    <script src="../sendToEmail.js"></script>
+    <script src="../logout.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const openBtn = document.getElementById("openGradesModal");
+        const modal = document.getElementById("gradesModal");
+        const closeBtn = document.getElementById("closeGradesModal");
+
+        /* открыть */
+        openBtn.addEventListener("click", () =>
+          modal.classList.remove("hidden")
+        );
+
+        /* закрыть крестиком */
+        closeBtn.addEventListener("click", () => modal.classList.add("hidden"));
+
+        /* закрыть кликом по затемнённому фону */
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) modal.classList.add("hidden");
+        });
+
+        /* закрыть клавишей Esc */
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+            modal.classList.add("hidden");
+          }
+        });
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="../certyfikat.js"></script>
+  </body>
+</html>

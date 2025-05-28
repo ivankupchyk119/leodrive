@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Test</title>
+    <link rel="stylesheet" href="testB.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Back Button -->
+        <a href="../teoria/theory.html" id="back-button" class="back-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="18" stroke="#e49022" stroke-width="2" fill="none" />
+                <polyline points="22 12 14 20 22 28" fill="none" stroke="#e49022" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </a>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const themeToggle = document.getElementById('themeToggle');
+                const body = document.body;
+
+                // 1. Установить тему при загрузке страницы
+                const savedTheme = localStorage.getItem('theme') || 'light-theme';
+                body.classList.add(savedTheme);
+                themeToggle.textContent = savedTheme === 'dark-theme' ? '🌙' : '☀️';
+
+                // 2. Добавить слушатель на кнопку
+                themeToggle.addEventListener('click', () => {
+                    // Удалить текущую тему
+                    body.classList.toggle('light-theme');
+                    body.classList.toggle('dark-theme');
+
+                    // Проверить текущую тему
+                    const currentTheme = body.classList.contains('dark-theme') ? 'dark-theme' : 'light-theme';
+
+                    // Обновить иконку
+                    themeToggle.textContent = currentTheme === 'dark-theme' ? '🌙' : '☀️';
+
+                    // Сохранить тему в localStorage
+                    localStorage.setItem('theme', currentTheme);
+                });
+            }); 
+        </script>
+        <!-- Question 1 -->
+        <div class="question">
+            <h3>Pytanie 1: Które z wymienionych dopuszczalne są w Polsce?</h3>
+            <div class="options">
+                <div class="option" data-correct="false">
+                    <p>A) 0.5 promila</p>
+                </div>
+                <div class="option" data-correct="true">
+                    <p>B) 0.2 promila</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>C) 0.1 promila</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) 0 promila</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> W Polsce dopuszczalne stężenie alkoholu we krwi kierowcy wynosi
+                    maksymalnie 0,2 promila. Przekroczenie tego poziomu jest traktowane jako wykroczenie, a powyżej 0,5
+                    promila jako przestępstwo.</p>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+            <h3>Pytanie 2: Co oznacza znak drogowy D-1?</h3>
+            <div class="options">
+                <div class="option" data-correct="false">
+                    <p>A) Autostrada</p>
+                </div>
+                <div class="option" data-correct="true">
+                    <p>B) Początek drogi z pierwszeństwem</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>C) Droga ekspresowa</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) Wyjazd ze strefy ograniczonej prędkości</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> Znak D-1 oznacza drogę z pierwszeństwem, co oznacza, że kierowcy
+                    poruszający się tą drogą nie muszą ustępować pierwszeństwa na skrzyżowaniach, chyba że jest to
+                    inaczej oznaczone.</p>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question">
+            <h3>Pytanie 3: Jaka jest minimalna głębokość bieżnika opony dopuszczona do jazdy w ruchu drogowym?</h3>
+            <div class="options">
+                <div class="option" data-correct="false">
+                    <p>A) 1,0 mm</p>
+                </div>
+                <div class="option" data-correct="true">
+                    <p>B) 1,6 mm</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>C) 2,0 mm</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) 2,5 mm</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> Minimalna głębokość bieżnika opony w Polsce wynosi 1,6 mm. Poniżej tej
+                    wartości opona jest uznawana za niebezpieczną i niedopuszczalną do użytku.</p>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question">
+            <h3>Pytanie 4: Jak należy zachować się podczas zbliżania się do przejścia dla pieszych, jeśli pieszy
+                znajWduje się na przejściu?</h3>
+            <div class="options">
+                <div class="option" data-correct="false">
+                    <p>A) Przyspieszyć, aby pieszy szybciej przeszedł.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>B) Zatrzymać się tylko, jeśli pieszy znajduje się na twoim pasie ruchu.</p>
+                </div>
+                <div class="option" data-correct="true">
+                    <p>C) Zwolnić i ustąpić pierwszeństwa pieszemu.</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) Zatrzymać się wyłącznie, jeśli pieszy zasygnalizował wejście na przejście.</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> Kierowca ma obowiązek ustąpić pierwszeństwa każdemu pieszemu
+                    znajdującemu się na przejściu oraz zachować szczególną ostrożność w jego pobliżu.</p>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question">
+            <h3>Pytanie 5: Jakie światła powinny być włączone w pojeździe podczas jazdy w dzień przy dobrej widoczności?
+            </h3>
+            <div class="options">
+                <div class="option" data-correct="false">
+                    <p>A) Światła drogowe</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>B) Światła pozycyjne</p>
+                </div>
+                <div class="option" data-correct="true">
+                    <p>C) Światła mijania lub do jazdy dziennej</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) Żadne światła nie są wymagane</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> W Polsce w ciągu dnia kierowcy są zobowiązani do używania świateł
+                    mijania lub świateł do jazdy dziennej.</p>
+            </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="question">
+            <h3>Pytanie 6: Jaka jest maksymalna dopuszczalna prędkość na drodze ekspresowej jednopasowej dla pojazdu
+                osobowego?</h3>
+            <div class="options">
+                <div class="option" data-correct="false">
+                    <p>A) 100 km/h</p>
+                </div>
+                <div class="option" data-correct="true">
+                    <p>B) 120 km/h</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>C) 140 km/h</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) 90 km/h</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> Na drodze ekspresowej jednopasowej w Polsce maksymalna dopuszczalna
+                    prędkość dla pojazdu osobowego wynosi 100 km/h. Na drodze ekspresowej dwupasowej limit wynosi 120
+                    km/h, a na autostradzie 140 km/h.</p>
+            </div>
+        </div>
+        <!-- Question 7 -->
+        <div class="question">
+            <h3>Pytanie 7: Co powinien zrobić kierowca przed rozpoczęciem jazdy?</h3>
+            <div class="options">
+                <div class="option" data-correct="true">
+                    <p>A) Sprawdzić stan techniczny pojazdu, w tym oświetlenie i poziomy płynów</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>B) Tylko uruchomić silnik</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>C) Sprawdzić tylko paliwo</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) Sprawdzić pogodę</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> Kierowca ma obowiązek sprawdzić stan techniczny pojazdu – m.in.
+                    hamulce, światła i płyny eksploatacyjne – przed rozpoczęciem jazdy.</p>
+            </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="question">
+            <h3>Pytanie 8: Co oznacza migający zielony sygnał świetlny?</h3>
+            <div class="options">
+                <div class="option" data-correct="true">
+                    <p>A) Ostrzeżenie o zmianie na czerwone</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>B) Możliwość wyprzedzania</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>C) Zakaz skrętu</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) Wolna jazda bez ograniczeń</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> Migający zielony sygnał informuje kierowcę, że zaraz zapali się światło
+                    żółte i należy przygotować się do zatrzymania.</p>
+            </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="question">
+            <h3>Pytanie 9: Kiedy można wyprzedzać pojazd na przejściu dla pieszych?</h3>
+            <div class="options">
+                <div class="option" data-correct="false">
+                    <p>A) Gdy nie ma pieszych</p>
+                </div>
+                <div class="option" data-correct="true">
+                    <p>B) Nigdy, bezpośrednio przed i na przejściu jest to zabronione</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>C) Tylko w dzień</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) Tylko pojazdy jednośladowe</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> Wyprzedzanie na i bezpośrednio przed przejściem dla pieszych jest
+                    zabronione, nawet jeśli pieszy nie znajduje się na przejściu.</p>
+            </div>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="question">
+            <h3>Pytanie 10: Jakie dokumenty powinien mieć przy sobie kierowca pojazdu osobowego?</h3>
+            <div class="options">
+                <div class="option" data-correct="true">
+                    <p>A) Prawo jazdy, dowód osobisty lub inny dokument tożsamości</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>B) Dowód rejestracyjny i OC w formie papierowej</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>C) Tylko ubezpieczenie</p>
+                </div>
+                <div class="option" data-correct="false">
+                    <p>D) Tylko prawo jazdy</p>
+                </div>
+            </div>
+            <div class="explanation" style="display: none;">
+                <p><strong>Wyjaśnienie:</strong> Od 2020 roku nie trzeba wozić przy sobie dowodu rejestracyjnego i
+                    polisy OC, ale prawo jazdy i dokument tożsamości są wymagane przy kontroli.</p>
+            </div>
+        </div>
+
+
+        <button class="submit-btn">Zapisz wynik</button>
+    </div>
+    <script src="testB.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,701 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, #FF7A00, #FF0000);
+}
+
+/* Статичная шапка */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Высота шапки */
+    z-index: 1000;
+    border-bottom: 1px solid rgba(40, 40, 40, 0.60);
+    background: #F0F0F0;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Разделяем логотип и меню */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Логотип */
+.logo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px; /* Расстояние между LEO и DRIVE */
+    text-align: left;
+}
+
+.leo {
+    color: #FFB60A;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #FFB60A;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.drive {
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+/* Меню */
+.nav-menu {
+    display: flex;
+    justify-content: center; /* Центрируем кнопки */
+    gap: 80px; /* Расстояние между кнопками */
+    flex: 1; /* Распределяем пространство */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #282828; /* Основной цвет текста */
+    font-family: 'Onest', sans-serif; /* Указанный шрифт */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    transition: color 0.3s ease; /* Плавное изменение цвета */
+}
+
+/* Стили при наведении */
+.nav-link:hover {
+    color: #FFB60A; /* Цвет при наведении */
+}
+
+/* Стили при нажатии */
+.nav-link:active {
+    color: #C56302; /* Цвет текста при нажатии */
+}
+
+/* Медиазапросы для мобильных устройств */
+@media (max-width: 768px) {
+    .header {
+        height: 70px; /* Уменьшенная высота на мобильных устройствах */
+        padding: 0 10px;
+    }
+    .leo, .drive {
+        font-size: 20px; /* Уменьшенный размер текста */
+    }
+    .nav-menu {
+        gap: 20px; /* Меньшее расстояние между кнопками */
+    }
+    .nav-link {
+        font-size: 14px; /* Уменьшенный шрифт для кнопок */
+    }
+}
+
+/* === Базовые настройки === */
+  main {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 80px;
+  }
+  
+  /* === Профиль === */
+  .info-section {
+    max-width: 520px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 36px 28px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
+    position: relative;
+    transition: box-shadow 0.3s ease;
+  }
+  .info-section:hover {
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* === Кнопка "+" === */
+  #addMaterialsBtn, #openGradesModal, .btn-notes {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: transform 0.2s ease;
+  }
+
+  .btn-notes{
+    top: 60px;
+  }
+
+  #addMaterialsBtn:hover, #openGradesModal:hover, .btn-notes:hover {
+    transform: scale(1.15);
+  }
+
+  /* Notes */
+  .notes-container {
+    margin-top: 20px;
+    max-height: 300px; /* Ограничиваем высоту */
+    overflow-y: auto; /* Включаем вертикальный скролл */
+    padding-right: 5px; /* Немного места для скроллбара */
+  }
+  .notes-container::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .notes-container::-webkit-scrollbar-thumb {
+    background-color: #ff7a00;
+    border-radius: 3px;
+  }
+  #notesModal .modal-content {
+    width: 100%;
+    max-width: 500px;
+    max-height: 500px;
+    overflow: hidden; /* Скрываем переполнение */
+  }       
+  
+  .note-card {
+    background: #f5f5f5;
+    border-left: 4px solid #ff7a00;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+  }
+  
+  .note-meta {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 6px;
+  }
+
+  .info-box {
+    background: #fff9f3;
+    padding: 16px 20px;
+    border-left: 4px solid #ff7a00;
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .info-label {
+    font-weight: 600;
+    color: #222;
+    flex: 1;
+    text-align: left;
+  }
+  
+  .info-value {
+    font-weight: 400;
+    color: #555;
+    flex: 1;
+    text-align: right;
+  }
+  
+  
+  
+  /* === Аватар === */
+  .avatar {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 3px solid #FF7A00;
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+  
+  /* === Имя и роль === */
+  h1#user-name {
+    font-size: 24px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 4px;
+  }
+  
+  h2#user-role {
+    font-size: 16px;
+    font-weight: 300;
+    color: #999;
+    margin-bottom: 20px;
+  }
+  
+  /* === Информация === */
+  .info-box {
+    text-align: left;
+    background: #fff9f3;
+    padding: 16px;
+    border-left: 4px solid #ff7a00;
+    border-radius: 8px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 24px;
+  }
+  .category-text {
+    font-weight: 500;
+    color: #ff7a00;
+  }
+  
+  /* === Сообщения === */
+  #info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .message-card {
+    background: #fff8f1;
+    border-left: 4px solid #ff7a00;
+    padding: 14px 16px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(255, 122, 0, 0.1);
+    transition: background 0.3s ease;
+  }
+  .message-card:hover {
+    background: #fff2e4;
+  }
+  .message-card p {
+    margin: 4px 0;
+  }
+  .timestamp {
+    font-size: 12px;
+    color: #999;
+  }
+  
+  
+/* === АВАТАР-ПИКЕР === */
+#avatar-picker {
+    position: fixed;
+    top: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 2px solid #FF7A00;
+    border-radius: 10px;
+    padding: 15px 20px;
+    z-index: 2000;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  /* Прячем по умолчанию */
+  .hidden {
+    display: none !important;
+  }
+  
+  /* Стиль для выбора изображений */
+  .avatar-option {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    object-fit: cover;
+    cursor: pointer;
+    transition: border 0.2s ease, transform 0.2s ease;
+    margin: 5px;
+  }
+  
+  .avatar-option:hover {
+    border-color: #FF7A00;
+    transform: scale(1.05);
+  }
+  
+  /* Кнопка закрытия */
+  #close-picker {
+    background: #FF7A00;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  #close-picker:hover {
+    background: #e86c00;
+  }
+  
+  /* Раскладка опций */
+  .avatar-options-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  
+  /* === Модальное окно === */
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+  }
+  .modal.hidden {
+    display: none;
+  }
+  .modal-content {
+    background: #ffffff;
+    padding: 32px 36px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 460px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    position: relative;
+    border-top: 8px solid #ff7a00;
+  }
+  
+  .close {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #bbb;
+    transition: color 0.2s ease;
+  }
+  .close:hover {
+    color: #ff7a00;
+  }
+  
+  .modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 22px;
+    color: #ff7a00;
+    text-align: center;
+  }
+
+  .modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,.45);
+    z-index: 9999;
+  }
+  
+  .hidden { display: none; }
+  
+  .modal-content {
+    background: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: .6rem;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+  }
+  
+  .close {
+    position: absolute;
+    font-size: 1.8rem;
+    line-height: 1;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  #materialForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  #materialForm input[type="text"],
+  #materialForm input[type="url"],
+  #materialForm input[type="file"],
+  #materialForm textarea {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    resize: none;
+  }
+  #materialForm input:focus,
+  #materialForm textarea:focus {
+    border-color: #ff7a00;
+    outline: none;
+  }
+  
+  #materialForm button {
+    align-self: flex-end;
+    padding: 10px 20px;
+    background-color: #ff7a00;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #materialForm button:hover {
+    background-color: #e96a00;
+  }
+
+  #generate-report, .wyslijBtn {
+    background: linear-gradient(135deg, #ff6600, #ff0066);
+    color: white;
+    font-weight: 800;
+    font-size: 18px;
+    padding: 16px 30px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.8), 0 0 40px rgba(255, 0, 102, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: block;
+  }
+  
+  #generate-report::before , .wyslijBtn::before{
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, #ffb347, #ff0066);
+    opacity: 0;
+    transition: opacity 0.4s, transform 0.5s;
+    z-index: -1;
+    border-radius: 50%;
+    transform: scale(0.5);
+  }
+  
+  #generate-report:hover::before, .wyslijBtn:hover::before {
+    opacity: 0.5;
+    transform: scale(1.5);
+  }
+  
+  #generate-report:hover, .wyslijBtn:hover{
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 0 0 30px rgba(255, 0, 102, 0.9), 0 0 50px rgba(255, 102, 0, 0.8);
+  }
+  
+  #generate-report:active, .wyslijBtn:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 10px rgba(255, 0, 102, 0.9), 0 0 20px rgba(255, 102, 0, 0.8);
+  }
+  
+  #generate-report{
+    margin: 50px auto 0px auto;
+  }
+
+  .wyslijBtn{
+    margin: 25px auto 0px auto;
+  }
+
+  .modal-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* === Особые рамки для Premium и Инструкторов === */
+/* Premium Avatar Border */
+.avatar.premium-avatar {
+  border: 4px solid #FFD700 !important; /* Золотая рамка */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+/* Instructor Avatar Border */
+.avatar.instructor-avatar {
+  border: 4px solid #008cff !important; /* Синяя пунктирная рамка */
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+}
+
+
+/* General styles */
+body {
+    overflow-x: hidden;
+    animation: pageFadeIn 0.8s ease-out;
+}
+
+/* Keyframes */
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+@keyframes menuLinkHover {
+  from { letter-spacing: 1px; }
+  to { letter-spacing: 2px; }
+}
+
+/* Static header with slideDown animation */
+.header {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    animation: slideDown 0.6s ease-out;
+}
+
+/* Logo fadeIn */
+.logo { animation: fadeIn 1s ease-in-out 0.5s forwards; opacity: 0; }
+
+.nav-link {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in-out 0.8s forwards;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .header { height: 70px; padding: 0 10px; }
+    .leo, .drive { font-size: 20px; }
+    .nav-menu { gap: 20px; }
+    .nav-link { font-size: 14px; }
+}
+
+/* Main content fadeIn */
+main {animation: fadeIn 1s ease-in; }
+
+/* Info section with scaleIn */
+.info-section {
+    opacity: 0;
+    animation: scaleIn 0.7s ease-out 1s forwards;
+}
+
+/* Modal animations */
+.modal-content {
+    transform: scale(0.8);
+    opacity: 0;
+    animation: scaleIn 0.4s ease-out forwards;
+}
+.modal.hidden .modal-content {
+    animation: none;
+}
+.modal {
+    animation: fadeIn 0.4s ease;
+}
+
+/* Avatar picker slideUp */
+#avatar-picker {
+    position: fixed;
+    top: 130px;
+    left: 50%;
+    transform: translate(-50%, -20px);
+    opacity: 0;
+    background: #fff;
+    border: 2px solid #FF7A00;
+    border-radius: 10px;
+    padding: 15px 20px;
+    z-index: 2000;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+#avatar-picker:not(.hidden) {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+
+/* Avatar hover effect */
+.avatar-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.avatar-container img {
+    display: block;
+    border-radius: 50%;
+    transition: filter 0.3s ease;
+}
+.avatar-container:hover img {
+    filter: brightness(0.7);
+}
+.edit-icon {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: 24px;
+    height: 24px;
+    fill: white;
+    pointer-events: none;
+}
+.avatar-container:hover .edit-icon {
+    opacity: 1;
+}
+
+/* SVG icon */
+.edit-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: white;
+}
+
+  /* Черный неон для имени премиум-пользователя */
+.smoke-text {
+  color: #000;
+  text-shadow:
+      0 0 1px #000,
+      0 0 2px #000,
+      0 0 4px #000;
+  animation: neonPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 1px #000,
+      0 0 2px #000,
+      0 0 4px #000;
+  }
+  50% {
+    text-shadow:
+      0 0 0.5px #000,
+      0 0 1px #000,
+      0 0 2px #000;
+  }
+}
+
